@@ -367,6 +367,7 @@
   .inbox article { padding: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .spin { animation: none; }
   :global(html) { scroll-behavior: auto; }
   :global(*), :global(*::before), :global(*::after) { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .veilArt { opacity: 1 !important; }

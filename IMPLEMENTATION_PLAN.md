@@ -16,12 +16,12 @@ Implement the supplied Full-Stack Portfolio & Blog specification as a React SPA 
 
 ## Working assumptions
 
-- Confirmed portfolio name: Waisery. Biography, professional description, projects, and articles remain unknown. Illustrative content must be labeled sample content.
+- Confirmed portfolio name: Waisery. Biography, learning focus, skills, and the approved public email are adapted from the supplied reference archive. Six Literature, Art, and Media works are now supplied and approved; original journal articles remain pending. Illustrative content must be labeled sample content.
 - User requested Impeccable and ImageGen visual direction samples before frontend implementation. Generate three contrasting homepage comps, show them together, and await a selection. Backend work can proceed independently.
-- Visual revision: preserve study B's whitespace and elegance, adopt the Chinese celestial white-jade, gold-lit, cloud-sea and fine-openwork references from style_prompts.md and the two supplied images. Three revised homepage compositions are saved in `.impeccable/mocks/white-jade/`; final selection remains pending.
+- Approved visual direction: preserve study 2's whitespace and elegance, with study 3's white-jade architecture naturally dissolving into study 2's figure-led scene. The Chinese celestial palette, cloud sea, pale gold, and fine openwork are implemented as separately generated artwork behind semantic UI.
 - Skill context launcher is unavailable in this environment; apply the design references directly. No workflow preference is stored on the user's behalf.
-- Atlas MCP access is disabled for the connected organization. No database credentials are available. Production URLs must be recorded only after a successful deployment and live verification; do not fabricate them.
-- A live deployment requires repository hosting and an Atlas URI. Prepare configuration and finish local verification before any remaining setup request.
+- Atlas MCP access is disabled for the connected organization. The owner subsequently supplied production configuration through an ignored local environment file; a read-only Atlas connection check succeeded. Credentials are excluded from source and submission archives.
+- Source is published to the owner-approved public repository Waisery/Waisery-portfolio. The frontend is deployed on Vercel and the API is deployed on Render with a connected database. See VERIFICATION.md for current release and end-to-end observations rather than treating these targets as unconditional acceptance.
 
 ## Acceptance criteria
 
@@ -35,4 +35,10 @@ Implement the supplied Full-Stack Portfolio & Blog specification as a React SPA 
 
 ## Content reference update
 
-Use src.zip only to adapt the biography, learning focus, skills and contact information. Use Waisery as the public name; the user explicitly approved publishing the contact email. Ignore lab placeholders, the octocat feed, missing portrait assets, and console-only contact behavior. The final project collection will be Literature, Art, and Media; await the user's local materials before replacing the labeled demonstration collection. No project data is imported from the reference archive in this update.
+Use src.zip only to adapt the biography, learning focus, skills and contact information. Use Waisery as the public name; the user explicitly approved publishing the contact email. Ignore lab placeholders, the octocat feed, missing portrait assets, and console-only contact behavior. The final project collection covers Literature, Art, and Media. Six subsequent owner-supplied works are approved for import. No project data is imported from the earlier reference archive.
+
+## October 25 presentation and content revision
+
+The latest owner request replaces continuous homepage scrolling with a pure-white, five-chapter presentation. Each transition has bounded entrance/exit keyframes; the architectural artwork settles into the primary figure artwork within the opening composition. Arrow controls, keyboard navigation, touch gestures, content overflow, and reduced-motion preferences have explicit behavior. Other routes retain their existing document flow and ivory palette.
+
+Six supplied works are approved for public Literature, Art, and Media display. The implementation now supports English full-text literature, native video/audio playback, media fields in the dashboard, safe source validation, and an explicit import script. The owner separately authorized production administrator provisioning and import while preserving unrelated data. The final test suite contains 22 backend and 12 frontend tests. Final browser animation/visual acceptance remains subject to the recorded tool limitation.

@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-25T20:06:49.6090335+08:00",
+  "title": "Design System: Waisery",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0098 87.5)",
+          "oklch(26% 0.0098 87.5)",
+          "oklch(38% 0.0098 87.5)",
+          "oklch(49% 0.0098 87.5)",
+          "oklch(61% 0.0098 87.5)",
+          "oklch(72% 0.0098 87.5)",
+          "oklch(84% 0.0098 87.5)",
+          "oklch(95% 0.0098 87.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0203 76.6)",
+          "oklch(26% 0.0203 76.6)",
+          "oklch(38% 0.0203 76.6)",
+          "oklch(49% 0.0203 76.6)",
+          "oklch(61% 0.0203 76.6)",
+          "oklch(72% 0.0203 76.6)",
+          "oklch(84% 0.0203 76.6)",
+          "oklch(95% 0.0203 76.6)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Warm Muted Text",
+        "tonalRamp": [
+          "oklch(15% 0.0305 80.1)",
+          "oklch(26% 0.0305 80.1)",
+          "oklch(38% 0.0305 80.1)",
+          "oklch(49% 0.0305 80.1)",
+          "oklch(61% 0.0305 80.1)",
+          "oklch(72% 0.0305 80.1)",
+          "oklch(84% 0.0305 80.1)",
+          "oklch(95% 0.0305 80.1)"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Quiet Gold",
+        "tonalRamp": [
+          "oklch(15% 0.0831 76.2)",
+          "oklch(26% 0.0831 76.2)",
+          "oklch(38% 0.0831 76.2)",
+          "oklch(49% 0.0831 76.2)",
+          "oklch(61% 0.0831 76.2)",
+          "oklch(72% 0.0831 76.2)",
+          "oklch(84% 0.0831 76.2)",
+          "oklch(95% 0.0831 76.2)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Warm Fine Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0250 83.4)",
+          "oklch(26% 0.0250 83.4)",
+          "oklch(38% 0.0250 83.4)",
+          "oklch(49% 0.0250 83.4)",
+          "oklch(61% 0.0250 83.4)",
+          "oklch(72% 0.0250 83.4)",
+          "oklch(84% 0.0250 83.4)",
+          "oklch(95% 0.0250 83.4)"
+        ]
+      },
+      "home-paper": {
+        "role": "neutral",
+        "displayName": "White Chapter Canvas",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.0)",
+          "oklch(26% 0.0000 0.0)",
+          "oklch(38% 0.0000 0.0)",
+          "oklch(49% 0.0000 0.0)",
+          "oklch(61% 0.0000 0.0)",
+          "oklch(72% 0.0000 0.0)",
+          "oklch(84% 0.0000 0.0)",
+          "oklch(95% 0.0000 0.0)"
+        ]
+      },
+      "home-ink": {
+        "role": "neutral",
+        "displayName": "Botanical Charcoal",
+        "tonalRamp": [
+          "oklch(15% 0.0078 128.8)",
+          "oklch(26% 0.0078 128.8)",
+          "oklch(38% 0.0078 128.8)",
+          "oklch(49% 0.0078 128.8)",
+          "oklch(61% 0.0078 128.8)",
+          "oklch(72% 0.0078 128.8)",
+          "oklch(84% 0.0078 128.8)",
+          "oklch(95% 0.0078 128.8)"
+        ]
+      },
+      "home-muted": {
+        "role": "neutral",
+        "displayName": "Cool Grey",
+        "tonalRamp": [
+          "oklch(15% 0.0125 136.6)",
+          "oklch(26% 0.0125 136.6)",
+          "oklch(38% 0.0125 136.6)",
+          "oklch(49% 0.0125 136.6)",
+          "oklch(61% 0.0125 136.6)",
+          "oklch(72% 0.0125 136.6)",
+          "oklch(84% 0.0125 136.6)",
+          "oklch(95% 0.0125 136.6)"
+        ]
+      },
+      "home-line": {
+        "role": "neutral",
+        "displayName": "Cool Fine Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0083 121.6)",
+          "oklch(26% 0.0083 121.6)",
+          "oklch(38% 0.0083 121.6)",
+          "oklch(49% 0.0083 121.6)",
+          "oklch(61% 0.0083 121.6)",
+          "oklch(72% 0.0083 121.6)",
+          "oklch(84% 0.0083 121.6)",
+          "oklch(95% 0.0083 121.6)"
+        ]
+      },
+      "home-emphasis": {
+        "role": "neutral",
+        "displayName": "Home Emphasis",
+        "tonalRamp": [
+          "oklch(15% 0.0808 75.8)",
+          "oklch(26% 0.0808 75.8)",
+          "oklch(38% 0.0808 75.8)",
+          "oklch(49% 0.0808 75.8)",
+          "oklch(61% 0.0808 75.8)",
+          "oklch(72% 0.0808 75.8)",
+          "oklch(84% 0.0808 75.8)",
+          "oklch(95% 0.0808 75.8)"
+        ]
+      },
+      "link-hover": {
+        "role": "neutral",
+        "displayName": "Link Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0822 73.4)",
+          "oklch(26% 0.0822 73.4)",
+          "oklch(38% 0.0822 73.4)",
+          "oklch(49% 0.0822 73.4)",
+          "oklch(61% 0.0822 73.4)",
+          "oklch(72% 0.0822 73.4)",
+          "oklch(84% 0.0822 73.4)",
+          "oklch(95% 0.0822 73.4)"
+        ]
+      },
+      "button-text": {
+        "role": "neutral",
+        "displayName": "Button Text",
+        "tonalRamp": [
+          "oklch(15% 0.0142 84.6)",
+          "oklch(26% 0.0142 84.6)",
+          "oklch(38% 0.0142 84.6)",
+          "oklch(49% 0.0142 84.6)",
+          "oklch(61% 0.0142 84.6)",
+          "oklch(72% 0.0142 84.6)",
+          "oklch(84% 0.0142 84.6)",
+          "oklch(95% 0.0142 84.6)"
+        ]
+      },
+      "button-hover": {
+        "role": "neutral",
+        "displayName": "Button Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0468 72.2)",
+          "oklch(26% 0.0468 72.2)",
+          "oklch(38% 0.0468 72.2)",
+          "oklch(49% 0.0468 72.2)",
+          "oklch(61% 0.0468 72.2)",
+          "oklch(72% 0.0468 72.2)",
+          "oklch(84% 0.0468 72.2)",
+          "oklch(95% 0.0468 72.2)"
+        ]
+      },
+      "secondary-border": {
+        "role": "neutral",
+        "displayName": "Secondary Border",
+        "tonalRamp": [
+          "oklch(15% 0.0382 79.6)",
+          "oklch(26% 0.0382 79.6)",
+          "oklch(38% 0.0382 79.6)",
+          "oklch(49% 0.0382 79.6)",
+          "oklch(61% 0.0382 79.6)",
+          "oklch(72% 0.0382 79.6)",
+          "oklch(84% 0.0382 79.6)",
+          "oklch(95% 0.0382 79.6)"
+        ]
+      },
+      "secondary-hover": {
+        "role": "neutral",
+        "displayName": "Secondary Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0240 79.7)",
+          "oklch(26% 0.0240 79.7)",
+          "oklch(38% 0.0240 79.7)",
+          "oklch(49% 0.0240 79.7)",
+          "oklch(61% 0.0240 79.7)",
+          "oklch(72% 0.0240 79.7)",
+          "oklch(84% 0.0240 79.7)",
+          "oklch(95% 0.0240 79.7)"
+        ]
+      },
+      "secondary-hover-border": {
+        "role": "neutral",
+        "displayName": "Secondary Hover Border",
+        "tonalRamp": [
+          "oklch(15% 0.0527 77.9)",
+          "oklch(26% 0.0527 77.9)",
+          "oklch(38% 0.0527 77.9)",
+          "oklch(49% 0.0527 77.9)",
+          "oklch(61% 0.0527 77.9)",
+          "oklch(72% 0.0527 77.9)",
+          "oklch(84% 0.0527 77.9)",
+          "oklch(95% 0.0527 77.9)"
+        ]
+      },
+      "field-surface": {
+        "role": "neutral",
+        "displayName": "Field Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0069 88.6)",
+          "oklch(26% 0.0069 88.6)",
+          "oklch(38% 0.0069 88.6)",
+          "oklch(49% 0.0069 88.6)",
+          "oklch(61% 0.0069 88.6)",
+          "oklch(72% 0.0069 88.6)",
+          "oklch(84% 0.0069 88.6)",
+          "oklch(95% 0.0069 88.6)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "tonalRamp": [
+          "oklch(15% 0.0301 82.6)",
+          "oklch(26% 0.0301 82.6)",
+          "oklch(38% 0.0301 82.6)",
+          "oklch(49% 0.0301 82.6)",
+          "oklch(61% 0.0301 82.6)",
+          "oklch(72% 0.0301 82.6)",
+          "oklch(84% 0.0301 82.6)",
+          "oklch(95% 0.0301 82.6)"
+        ]
+      },
+      "field-focus": {
+        "role": "neutral",
+        "displayName": "Field Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0776 77.3)",
+          "oklch(26% 0.0776 77.3)",
+          "oklch(38% 0.0776 77.3)",
+          "oklch(49% 0.0776 77.3)",
+          "oklch(61% 0.0776 77.3)",
+          "oklch(72% 0.0776 77.3)",
+          "oklch(84% 0.0776 77.3)",
+          "oklch(95% 0.0776 77.3)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15% 0.1003 67.6)",
+          "oklch(26% 0.1003 67.6)",
+          "oklch(38% 0.1003 67.6)",
+          "oklch(49% 0.1003 67.6)",
+          "oklch(61% 0.1003 67.6)",
+          "oklch(72% 0.1003 67.6)",
+          "oklch(84% 0.1003 67.6)",
+          "oklch(95% 0.1003 67.6)"
+        ]
+      },
+      "tag-surface": {
+        "role": "neutral",
+        "displayName": "Tag Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0189 83.1)",
+          "oklch(26% 0.0189 83.1)",
+          "oklch(38% 0.0189 83.1)",
+          "oklch(49% 0.0189 83.1)",
+          "oklch(61% 0.0189 83.1)",
+          "oklch(72% 0.0189 83.1)",
+          "oklch(84% 0.0189 83.1)",
+          "oklch(95% 0.0189 83.1)"
+        ]
+      },
+      "tag-text": {
+        "role": "neutral",
+        "displayName": "Tag Text",
+        "tonalRamp": [
+          "oklch(15% 0.0405 76.5)",
+          "oklch(26% 0.0405 76.5)",
+          "oklch(38% 0.0405 76.5)",
+          "oklch(49% 0.0405 76.5)",
+          "oklch(61% 0.0405 76.5)",
+          "oklch(72% 0.0405 76.5)",
+          "oklch(84% 0.0405 76.5)",
+          "oklch(95% 0.0405 76.5)"
+        ]
+      },
+      "editor-surface": {
+        "role": "neutral",
+        "displayName": "Editor Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0184 86.1)",
+          "oklch(26% 0.0184 86.1)",
+          "oklch(38% 0.0184 86.1)",
+          "oklch(49% 0.0184 86.1)",
+          "oklch(61% 0.0184 86.1)",
+          "oklch(72% 0.0184 86.1)",
+          "oklch(84% 0.0184 86.1)",
+          "oklch(95% 0.0184 86.1)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error",
+        "tonalRamp": [
+          "oklch(15% 0.1240 33.2)",
+          "oklch(26% 0.1240 33.2)",
+          "oklch(38% 0.1240 33.2)",
+          "oklch(49% 0.1240 33.2)",
+          "oklch(61% 0.1240 33.2)",
+          "oklch(72% 0.1240 33.2)",
+          "oklch(84% 0.1240 33.2)",
+          "oklch(95% 0.1240 33.2)"
+        ]
+      },
+      "notice-surface": {
+        "role": "neutral",
+        "displayName": "Notice Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0144 50.8)",
+          "oklch(26% 0.0144 50.8)",
+          "oklch(38% 0.0144 50.8)",
+          "oklch(49% 0.0144 50.8)",
+          "oklch(61% 0.0144 50.8)",
+          "oklch(72% 0.0144 50.8)",
+          "oklch(84% 0.0144 50.8)",
+          "oklch(95% 0.0144 50.8)"
+        ]
+      },
+      "notice-text": {
+        "role": "neutral",
+        "displayName": "Notice Text",
+        "tonalRamp": [
+          "oklch(15% 0.1002 32.1)",
+          "oklch(26% 0.1002 32.1)",
+          "oklch(38% 0.1002 32.1)",
+          "oklch(49% 0.1002 32.1)",
+          "oklch(61% 0.1002 32.1)",
+          "oklch(72% 0.1002 32.1)",
+          "oklch(84% 0.1002 32.1)",
+          "oklch(95% 0.1002 32.1)"
+        ]
+      },
+      "notice-border": {
+        "role": "neutral",
+        "displayName": "Notice Border",
+        "tonalRamp": [
+          "oklch(15% 0.0510 45.4)",
+          "oklch(26% 0.0510 45.4)",
+          "oklch(38% 0.0510 45.4)",
+          "oklch(49% 0.0510 45.4)",
+          "oklch(61% 0.0510 45.4)",
+          "oklch(72% 0.0510 45.4)",
+          "oklch(84% 0.0510 45.4)",
+          "oklch(95% 0.0510 45.4)"
+        ]
+      },
+      "success-surface": {
+        "role": "neutral",
+        "displayName": "Success Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0149 119.1)",
+          "oklch(26% 0.0149 119.1)",
+          "oklch(38% 0.0149 119.1)",
+          "oklch(49% 0.0149 119.1)",
+          "oklch(61% 0.0149 119.1)",
+          "oklch(72% 0.0149 119.1)",
+          "oklch(84% 0.0149 119.1)",
+          "oklch(95% 0.0149 119.1)"
+        ]
+      },
+      "success-text": {
+        "role": "neutral",
+        "displayName": "Success Text",
+        "tonalRamp": [
+          "oklch(15% 0.0496 130.5)",
+          "oklch(26% 0.0496 130.5)",
+          "oklch(38% 0.0496 130.5)",
+          "oklch(49% 0.0496 130.5)",
+          "oklch(61% 0.0496 130.5)",
+          "oklch(72% 0.0496 130.5)",
+          "oklch(84% 0.0496 130.5)",
+          "oklch(95% 0.0496 130.5)"
+        ]
+      },
+      "success-border": {
+        "role": "neutral",
+        "displayName": "Success Border",
+        "tonalRamp": [
+          "oklch(15% 0.0399 121.8)",
+          "oklch(26% 0.0399 121.8)",
+          "oklch(38% 0.0399 121.8)",
+          "oklch(49% 0.0399 121.8)",
+          "oklch(61% 0.0399 121.8)",
+          "oklch(72% 0.0399 121.8)",
+          "oklch(84% 0.0399 121.8)",
+          "oklch(95% 0.0399 121.8)"
+        ]
+      },
+      "media-surface": {
+        "role": "neutral",
+        "displayName": "Media Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0083 128.9)",
+          "oklch(26% 0.0083 128.9)",
+          "oklch(38% 0.0083 128.9)",
+          "oklch(49% 0.0083 128.9)",
+          "oklch(61% 0.0083 128.9)",
+          "oklch(72% 0.0083 128.9)",
+          "oklch(84% 0.0083 128.9)",
+          "oklch(95% 0.0083 128.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Opening Display",
+        "purpose": "Home opening only; mobile uses clamp(3.05rem,10.4vw,4.8rem)."
+      },
+      "headline": {
+        "displayName": "Chapter Headline",
+        "purpose": "Home chapter headings; mobile uses clamp(2.65rem,9.3vw,4rem)."
+      },
+      "page-title": {
+        "displayName": "Inner Page Title",
+        "purpose": "Default inner-route h1; some reading and form surfaces have explicit overrides."
+      },
+      "body": {
+        "displayName": "Functional Body",
+        "purpose": "Default sans-serif body; supporting copy varies by component."
+      },
+      "literature": {
+        "displayName": "Literary Passage",
+        "purpose": "Preserved-line-break literary text in a 68ch column."
+      },
+      "navigation": {
+        "displayName": "Site Navigation",
+        "purpose": "16px header and footer navigation; mobile menu links use 18px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-navigation",
+        "value": "0 15px 20px #30291f12",
+        "purpose": "Open mobile site menu only."
+      },
+      {
+        "name": "active-route-marker",
+        "value": "0 1px 0 #a27c46",
+        "purpose": "Fine lower marker for active route links; not panel elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background .2s, color .2s, border-color .2s",
+        "purpose": "Shared button state changes."
+      },
+      {
+        "name": "work-image",
+        "value": "transform .7s cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Scale artwork to 1.035 on hover."
+      },
+      {
+        "name": "scene-arrival",
+        "value": ".8s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Opacity, direction-aware 42px travel, and scale .985 to 1."
+      },
+      {
+        "name": "scene-departure",
+        "value": ".36s ease-out",
+        "purpose": "Opacity and opposing 24px travel."
+      },
+      {
+        "name": "content-arrival",
+        "value": ".72s cubic-bezier(.16,1,.3,1)",
+        "purpose": "20px vertical copy entrance; .08s and .14s staggering."
+      },
+      {
+        "name": "artwork-dissolve",
+        "value": "1.6s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Aligned architectural and figure plates dissolve with scale 1.035 to 1."
+      },
+      {
+        "name": "reduced-motion-effective",
+        "value": "Home opacity arrival .14s; departure .12s; other transitions .01ms; no spatial scene motion.",
+        "purpose": "Preserve a brief legible scene change while removing travel and the image dissolve. Loading spinner is static; document scrolling is immediate."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "shared-wide-legacy",
+        "value": "min-width: 1600px"
+      },
+      {
+        "name": "shared-compact",
+        "value": "max-width: 1100px"
+      },
+      {
+        "name": "home-compact",
+        "value": "max-width: 1050px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width: 760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Shared ink pill; inherits home ink inside the presentation.",
+      "html": "<button class=\"ds-primary\">Explore the work <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-primary{min-height:48px;padding:14px 25px;background:var(--ink,#30291f);color:#fffaf0;border:1px solid var(--ink,#30291f);border-radius:28px;display:inline-flex;align-items:center;justify-content:center;gap:22px;font:500 14px/1.3 'DM Sans',sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}.ds-primary:hover{color:#fffaf0;background:#5d4930;border-color:#5d4930}.ds-primary:focus-visible{outline:2px solid #9a672a;outline-offset:5px}.ds-primary:disabled{cursor:wait;opacity:.55}@media(prefers-reduced-motion:reduce){.ds-primary{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Transparent pill with a warm thin border.",
+      "html": "<button class=\"ds-secondary\">Read the journal</button>",
+      "css": ".ds-secondary{min-height:48px;padding:14px 25px;background:transparent;color:var(--ink,#30291f);border:1px solid #a99a82;border-radius:28px;display:inline-flex;align-items:center;justify-content:center;gap:22px;font:500 14px/1.3 'DM Sans',sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}.ds-secondary:hover{background:#eee4d4;color:var(--ink,#30291f);border-color:#8c7757}.ds-secondary:focus-visible{outline:2px solid #9a672a;outline-offset:5px}.ds-secondary:disabled{cursor:wait;opacity:.55}@media(prefers-reduced-motion:reduce){.ds-secondary{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Readable field with a connected label and warm focus outline.",
+      "html": "<label class=\"ds-field\">Email<input type=\"email\" placeholder=\"Your email address\" /></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:9px;font:500 14px 'DM Sans',sans-serif;color:var(--ink,#30291f)}.ds-field input{border:1px solid #c8bda9;border-radius:5px;background:#fdfbf6;padding:13px 14px;width:100%;font:400 16px/1.5 'DM Sans',sans-serif;color:inherit;caret-color:#9a672a}.ds-field input::placeholder{color:#827560;opacity:1}.ds-field input:focus{outline:2px solid #b69563;outline-offset:2px}.ds-field input[aria-invalid=true]{border-color:#a24b3a}"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Quiet route links with a fine current-route marker.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example navigation\"><a href=\"#work\" aria-current=\"page\">Work</a><a href=\"#journal\">Journal</a><a href=\"#about\">About</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:28px;color:var(--ink,#30291f);font:400 16px/1.5 'DM Sans',sans-serif}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;padding:9px 0;text-decoration:none;color:inherit}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:#805c29}.ds-nav a[aria-current=page]{box-shadow:0 1px 0 #a27c46}.ds-nav a:focus-visible{outline:2px solid #9a672a;outline-offset:5px}@media(max-width:760px){.ds-nav{flex-direction:column;align-items:stretch;gap:8px}.ds-nav a{font-size:18px;padding:12px 0}}"
+    },
+    {
+      "name": "Work Tags",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Noninteractive category and content labels.",
+      "html": "<div class=\"ds-tags\"><span>Literature</span><span>Art</span><span>Media</span></div>",
+      "css": ".ds-tags{display:flex;gap:8px;flex-wrap:wrap}.ds-tags span{color:#6b5b44;background:#eee7da;padding:6px 10px;border-radius:4px;font:400 12px 'DM Sans',sans-serif}"
+    },
+    {
+      "name": "Editorial Work Card",
+      "kind": "card",
+      "refersTo": "artwork",
+      "description": "Open article structure with modest image corners and no panel shadow. Preview omits external artwork.",
+      "html": "<article class=\"ds-card\"><a class=\"ds-image\" href=\"#project\" aria-label=\"View project\"><svg class=\"ds-art\" viewBox=\"0 0 360 190\" aria-hidden=\"true\"><path fill=\"#e8dfcf\" d=\"M0 0h360v190H0z\"/></svg><span class=\"ds-card-arrow\"><svg width=\"23\" height=\"23\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></span></a><div class=\"ds-title\"><h3><a href=\"#project\">Selected work</a></h3><span>Art</span></div><p>Stories, images, and experiences, given a considered form.</p></article>",
+      "css": ".ds-card{min-width:0;color:var(--ink,#30291f);font-family:'DM Sans',sans-serif}.ds-image{display:block;position:relative;overflow:hidden;aspect-ratio:1.9;background:#e7ded0;border-radius:6px}.ds-art{height:100%;width:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}.ds-image:hover .ds-art{transform:scale(1.035)}.ds-card-arrow{background:var(--paper,#faf7f0);color:var(--ink,#30291f);border-radius:50%;position:absolute;right:16px;bottom:16px;height:40px;width:40px;display:grid;place-items:center}.ds-title{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0 10px}.ds-title h3{font:500 2.3rem/1.04 'Cormorant Garamond',Georgia,serif;letter-spacing:-.025em;margin:0}.ds-title a{color:inherit;text-decoration:none}.ds-title a:hover{color:#805c29}.ds-title>span{color:var(--muted,#746957);font-size:13px}.ds-card>p{color:#675c4c;font-size:15px;max-width:70ch;line-height:1.75;margin:0}.ds-card a:focus-visible{outline:2px solid #9a672a;outline-offset:5px}@media(max-width:760px){.ds-image{aspect-ratio:1.65}.ds-title{padding-top:16px}.ds-title h3{font-size:2.2rem}}@media(prefers-reduced-motion:reduce){.ds-art{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Chapter Arrow",
+      "kind": "button",
+      "refersTo": "chapter-arrow",
+      "description": "Persistent presentation navigation with a round rule and explicit boundary state.",
+      "html": "<button class=\"ds-chapter-arrow\" aria-label=\"Next chapter\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-chapter-arrow{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #e3e5df;border-radius:50%;background:#fff;color:#272925;cursor:pointer;transition:background .15s}.ds-chapter-arrow:hover{background:#f5f5f1}.ds-chapter-arrow:focus-visible{outline:2px solid #9a672a;outline-offset:5px}.ds-chapter-arrow:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-chapter-arrow{transition-duration:.01ms!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Veil of Light with Jade Horizon",
+    "overview": "Waisery carries the confirmed Chinese celestial direction: elegant, dignified, grand, and striking. White-jade architecture, cloud seas, pale-gold light, fine openwork, translucent layers, and an anonymous dark figure establish the imagery. The figure is an atmospheric illustration, not a portrait of the portfolio owner. Spacious serif headlines and restrained functional text keep the work legible within that world. All interface copy and project documentation use English.\n\nThe implemented home is a pure-white, five-chapter presentation with deliberate keyframed changes between Opening, Work, About, Journal, and Contact. Inner routes retain the warm ivory, gold, and ink system for browsing, reading, forms, and management. The home composition is a route-specific expression; its viewport presentation is not a requirement for other screens.",
+    "keyCharacteristics": [
+      "Spacious typography with a clear distinction between literary display and functional text.",
+      "Celestial artwork balanced by quiet white or ivory surfaces.",
+      "Ink actions, fine warm rules, modest corners, and restrained motion.",
+      "Responsive reading space with explicit keyboard, focus, status, and reduced-motion behavior."
+    ],
+    "rules": [
+      {
+        "name": "The Scoped Paper Rule",
+        "body": "Pure white belongs to the homepage presentation and its header; inner routes keep warm paper unless an existing component explicitly defines another surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Cormorant Garamond for expressive headings and literary passages; use DM Sans for controls and functional information.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Surface Rule",
+        "body": "Keep ordinary content surfaces flat and express separation through space, rules, and the existing paper tones.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the scoped white homepage and warm ivory inner-route distinction.",
+      "Do keep serif display and literary text paired with sans-serif functional copy.",
+      "Do preserve the celestial artwork's anonymous figure, luminous architecture, and restrained gold character.",
+      "Do keep overflow content readable, focus visible, scene announcements available, and native media controls independent.",
+      "Do use the existing responsive grids and reduced-motion behavior when extending a component."
+    ],
+    "donts": [
+      "Don't apply the homepage's viewport presentation to reading or management routes without an explicit new design decision.",
+      "Don't use the illustrated figure as the portfolio owner's portrait.",
+      "Don't replace ordinary flat content surfaces with decorative elevation or remove the existing focus outlines.",
+      "Don't treat generated sidecar tonal ramps as additional production color tokens."
+    ]
+  }
+}

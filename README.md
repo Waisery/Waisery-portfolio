@@ -1,6 +1,6 @@
 # Waisery — Portfolio & Journal
 
-A full-stack personal portfolio and blog built with React, React Router, CSS Modules, Node.js, Express, and MongoDB/Mongoose. The visual identity combines a white-jade celestial panorama with a figure-led ivory-and-gold scene, connected by a scroll-linked transition.
+A full-stack personal portfolio and blog built with React, React Router, CSS Modules, Node.js, Express, and MongoDB/Mongoose. The homepage uses a pure-white canvas with five presentation chapters, keyframed transitions, and Chinese celestial artwork. Inner pages retain the ivory, pale-gold, and ink design system.
 
 ## Deployment targets
 
@@ -22,7 +22,7 @@ These are the owner's configured deployment targets. See `VERIFICATION.md` for t
 - Consistent JSON errors, request validation, URL validation, Helmet, CORS, rate limits, and graceful shutdown.
 - Real MongoDB for both local demonstration and production; no browser-only mock data.
 
-The biography, learning focus, and contact information are adapted from the owner's reference frontend. Waisery is the public display name, and the owner explicitly approved publishing the contact email. The final showcase will cover Literature, Art, and Media once the owner supplies the local materials. Existing demonstration projects and articles remain labeled illustrative content. The illustrated celestial figure is artwork, not a portrait of the portfolio owner. See `CONTENT_SOURCES.md` for the source mapping.
+The biography, learning focus, and contact information are adapted from the owner's reference frontend. Waisery is the public display name, and the owner explicitly approved publishing the contact email and six supplied works: three literary texts, two videos, and one audio recording. Literature is presented in English; videos and audio retain the supplied recording language with English presentation text. Generated covers are identified as illustrations. Local demonstration content stays labeled. The celestial figure is artwork, not a portrait of the portfolio owner. See `CONTENT_SOURCES.md` and `MEDIA_PROVENANCE.json` for source mapping.
 
 ## Requirements
 
@@ -64,6 +64,7 @@ For a database of your own, copy `server/.env.example` to `server/.env`, set `MO
 | `npm start` | Start the API; also serves `client/dist` if present |
 | `npm run check` | Run both test suites and the frontend production build |
 | `npm run seed` | Provision the explicitly configured administrator; optionally seed sample content |
+| `npm run import:works` | Explicitly import the six approved works into the configured local database |
 
 ## Project structure
 
@@ -167,3 +168,13 @@ Generated illustration prompts and source-reference descriptions are recorded in
 ## Submission
 
 The submission archive is named `_Project.zip`. It contains application source, artwork, lockfile, environment examples, deployment configuration, and documentation. Secret environment files, dependencies, local database files, caches, and generated build output are excluded. Production URLs must be checked after deployment before marking the hosted submission complete.
+
+## Presentation and creative works
+
+The homepage has five manually controlled chapters: Opening, Work, About, Journal, and Contact. Use the chapter controls, arrow keys, Page Up/Down, or a deliberate wheel/swipe gesture. Trackpad momentum cannot skip multiple chapters. Long chapter content remains scrollable before an edge gesture changes chapters. Browser zoom and media controls are preserved. Reduced-motion preferences replace spatial movement with a short fade. Inner routes keep ordinary document scrolling.
+
+Projects support `mediaType` values `image`, `text`, `video`, and `audio`, together with `mediaUrl`, `content`, and `contentNote`. Text works require content; audio and video require a safe URL. Local media belongs under `client/public/media`. The dashboard edits these fields and the public detail page provides native media controls or a readable full-text view. Video and audio do not autoplay.
+
+Stop the local development server before a local command-line import, because both use the same persistent demo database directory. An import requires explicitly configured administrator credentials. `npm run import:works -- --production` reads the ignored `server/.env.production.local` file and targets its Atlas database. It provisions that configured administrator if absent and upserts only the six stable source keys. It preserves unrelated records and never runs automatically at server start. Re-running the import replaces imported fields for these six works, so preserve later dashboard edits before choosing to import again. Production imports do not add sample content.
+
+The generated production administrator credentials are stored only in the ignored local file `server/.admin-credentials.local.txt`. They are excluded from Git and `_Project.zip`.

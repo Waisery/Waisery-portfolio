@@ -23,12 +23,20 @@ The course specification remains the acceptance standard. Reference archives and
 
 ## Production and content acceptance
 
-The production API returned a healthy connected database and the approved Waisery profile. Its projects and journal arrays were empty. Empty states are intentional until content is published. The formal Literature, Art, and Media materials and original writing remain owner-supplied acceptance items. No demonstration projects were inserted into the production database during this audit.
+The production API returned a healthy connected database and the approved Waisery profile. Its projects and journal arrays were empty. Empty states are intentional until content is published. This was the pre-import observation. The owner subsequently supplied and approved six creative works; the later release below supersedes the empty-collection status. No demonstration projects were inserted into production.
 
-Production administrator provisioning and a live authenticated write-through review remain outstanding. Isolated tests and local demo checks verify implementation behavior; they are not evidence that a production administrator has been provisioned.
+Administrator provisioning was initially outstanding and was subsequently authorized and completed in the later release below. A live browser write-through review remains outstanding. Isolated tests and local demo checks verify implementation behavior; they are not evidence that a production administrator has been provisioned.
 
 ## Evidence limits
 
 The browser automation connection stopped during the review because its Windows helper could not initialize. Checks completed before that interruption are recorded above. No later browser interactions are claimed. Saved viewport screenshots show the inspected states; the initial desktop full-page capture missed one offscreen lazy image, so it is not complete full-page visual evidence.
 
 The Impeccable command-line engine could not initialize earlier in this environment. No automated comp-diff or build-phase approval is claimed. A separate fresh-context review assesses the supplied source and screenshots at their actual scope. See VERIFICATION.md for the final deployment observations.
+
+## Superseding presentation and approved-work release
+
+The owner requested a pure-white homepage with PPT-like keyframed transitions. Continuous homepage scrolling is replaced by five explicit chapters. The opening artwork sequence settles from architecture into the primary figure; long chapter content remains readable before a new wheel gesture advances. Keyboard, touch, chapter controls, transition locking, and reduced-motion paths are implemented. Other routes keep ordinary scrolling.
+
+The owner supplied and authorized publication of six creative works and separately authorized production administrator provisioning and import. Three full literary texts, two full web-optimized videos, and an audio recording are prepared with English titles/descriptions. The production import completed successfully and preserved unrelated data. The journal remains empty until original articles are published; literary portfolio works are not silently duplicated as blog posts.
+
+The final automated suite has 22 backend and 12 frontend tests. Media/text persistence, invalid sources, required media content, all six source records/assets, wheel momentum, nested reading boundaries, and direction reversal are covered. A server-rendered structural check additionally confirmed the homepage renders and inactive chapters are hidden/inert. Production build passed. Browser visual and playback acceptance remains blocked by the recorded Windows browser-helper failure. The independent reviewer returned `recapture` for the earlier invalid desktop evidence; no visual ship verdict is claimed for the new presentation.

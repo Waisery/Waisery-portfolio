@@ -123,8 +123,8 @@
   .arrows { gap: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .presentation .slide[data-state], .presentation .slide .hero > *, .presentation .heading, .presentation .intro { animation: gentleArrival .14s ease-out both; }
-  .presentation .slide[data-state='leaving'] { animation: gentleDeparture .12s ease-in both; }
+  .presentation .slide[data-state], .presentation .slide .hero > *, .presentation .heading, .presentation .intro { animation: gentleArrival .14s ease-out both; animation-duration: .14s !important; }
+  .presentation .slide[data-state='leaving'] { animation: gentleDeparture .12s ease-in both; animation-duration: .12s !important; }
   .art img:first-child { animation: none; opacity: 0; }
   .art img:last-child { animation: none; opacity: 1; }
   @keyframes gentleArrival { from { opacity: 0; } to { opacity: 1; } }
