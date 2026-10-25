@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Pencil, Trash2, ArrowUpRight, X, Mail, Check, Feather, FolderOpen } from 'lucide-react';
 import { useAuth, useProfile, useResource } from '../context';
@@ -38,5 +38,16 @@ function Inbox() {
 }
 export default function Dashboard() {
   const { user } = useAuth(); const profile = useProfile(); const [tab, setTab] = useState('blog');
-  return <div className={`${s.page} ${s.dashboard}`}><div className={s.dashboardTitle}><div><h1>Your workspace.</h1><p>Welcome, {user.username}. Make something worth sharing.</p></div><span className={s.roleBadge}>{profile.data?.demo ? 'Local demo · ' : ''}{user.role === 'admin' ? 'Administrator' : 'Author'}</span></div><div className={s.workspaceTabs} role="tablist" aria-label="Workspace sections"><button role="tab" id="tab-blog" aria-controls="workspace-panel" aria-selected={tab === 'blog'} onClick={() => setTab('blog')}><Feather size={17} />Writing</button>{user.role === 'admin' && <><button role="tab" id="tab-projects" aria-controls="workspace-panel" aria-selected={tab === 'projects'} onClick={() => setTab('projects')}><FolderOpen size={17} />Projects</button><button role="tab" id="tab-inbox" aria-controls="workspace-panel" aria-selected={tab === 'inbox'} onClick={() => setTab('inbox')}><Mail size={17} />Inbox</button></>}</div><div role="tabpanel" id="workspace-panel" aria-labelledby={`tab-${tab}`}>{tab === 'inbox' ? <Inbox /> : <ContentManager key={tab} kind={tab} />}</div></div>;
+  const tabList = useRef(null);
+  const sections = [{ id: 'blog', label: 'Writing', icon: Feather }, ...(user.role === 'admin' ? [{ id: 'projects', label: 'Projects', icon: FolderOpen }, { id: 'inbox', label: 'Inbox', icon: Mail }] : [])];
+  function navigateTabs(event, index) {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % sections.length;
+    else if (event.key === 'ArrowLeft') next = (index - 1 + sections.length) % sections.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = sections.length - 1;
+    else return;
+    event.preventDefault(); setTab(sections[next].id); tabList.current?.querySelectorAll('[role="tab"]')[next]?.focus();
+  }
+  return <div className={`${s.page} ${s.dashboard}`}><div className={s.dashboardTitle}><div><h1>Your workspace.</h1><p>Welcome, {user.username}. Make something worth sharing.</p></div><span className={s.roleBadge}>{profile.data?.demo ? 'Local demo · ' : ''}{user.role === 'admin' ? 'Administrator' : 'Author'}</span></div><div ref={tabList} className={s.workspaceTabs} role="tablist" aria-label="Workspace sections">{sections.map((section, index) => <button key={section.id} role="tab" id={`tab-${section.id}`} aria-controls="workspace-panel" aria-selected={tab === section.id} tabIndex={tab === section.id ? 0 : -1} onKeyDown={event => navigateTabs(event, index)} onClick={() => setTab(section.id)}><section.icon size={17} />{section.label}</button>)}</div><div role="tabpanel" tabIndex={0} id="workspace-panel" aria-labelledby={`tab-${tab}`}>{tab === 'inbox' ? <Inbox /> : <ContentManager key={tab} kind={tab} />}</div></div>;
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { Header, Footer, Button } from './components';
+import { Header, Footer, Button, Status } from './components';
 import { useAuth } from './context';
 import Home, { About } from './pages/Home';
 import { Projects, Blog, ProjectDetail } from './pages/Collections';
@@ -10,8 +10,9 @@ import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
 import s from './styles.module.css';
 function Protected({ children }) {
-  const { user, checking } = useAuth(); const location = useLocation();
+  const { user, checking, authError, retrySession } = useAuth(); const location = useLocation();
   if (checking) return <div className={s.page} role="status">Loading your workspace...</div>;
+  if (authError) return <div className={s.page}><Status resource={{ error: authError, reload: retrySession }} /></div>;
   return user ? children : <Navigate to="/login" replace state={{ from: location.pathname }} />;
 }
 export default function App() {

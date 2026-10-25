@@ -10,6 +10,7 @@ process.env.NODE_ENV = 'test';
 process.env.DEMO_MODE = 'true';
 process.env.MONGODB_URI = '';
 process.env.JWT_SECRET = 'integration-test-secret-at-least-32-characters';
+process.env.CLIENT_ORIGIN = 'https://waisery-portfolio.vercel.app/,http://localhost:5173';
 process.env.MONGOMS_DOWNLOAD_DIR = fileURLToPath(new URL('../.data/binaries', import.meta.url));
 process.env.MONGOMS_DOWNLOAD_IGNORE_MISSING_HEADER = 'true';
 const { default: app } = await import('../src/app.js');
@@ -39,6 +40,20 @@ test('health confirms real database connectivity and security headers', async ()
 });
 test('profile is served by the API with confirmed identity', async () => {
   const res = await request(app).get('/api/profile').expect(200); assert.equal(res.body.profile.name, 'Waisery'); assert.equal(res.body.demo, true);
+});
+test('the production frontend can read API data and preflight authenticated writes', async () => {
+  const origin = 'https://waisery-portfolio.vercel.app';
+  const res = await request(app).get('/api/profile').set('Origin', origin).expect(200);
+  assert.equal(res.headers['access-control-allow-origin'], origin);
+  const preflight = await request(app).options('/api/projects').set('Origin', origin).set('Access-Control-Request-Method', 'POST').set('Access-Control-Request-Headers', 'authorization,content-type').expect(204);
+  assert.equal(preflight.headers['access-control-allow-origin'], origin);
+  assert.match(preflight.headers['access-control-allow-headers'], /authorization/);
+  const denied = await request(app).get('/api/profile').set('Origin', 'https://untrusted.example').expect(200);
+  assert.equal(denied.headers['access-control-allow-origin'], undefined);
+});
+test('production includes the exact deployed frontend even with a stale extra origin', () => {
+  const result = spawnSync(process.execPath, ['--input-type=module', '-e', "const {config}=await import('./src/config.js'); console.log(JSON.stringify(config.origins));"], { cwd: fileURLToPath(new URL('..', import.meta.url)), env: { ...process.env, NODE_ENV: 'production', DEMO_MODE: 'false', MONGODB_URI: 'mongodb://localhost/test', CLIENT_ORIGIN: 'https://extra.example/path/,javascript:invalid' }, encoding: 'utf8' });
+  assert.equal(result.status, 0); assert.deepEqual(JSON.parse(result.stdout), ['https://waisery-portfolio.vercel.app', 'https://extra.example']);
 });
 test('registration hashes passwords, issues a JWT and strips injected roles', async () => {
   const res = await request(app).post('/api/users/register').send({ username: 'Reader', email: 'reader@example.com', password: 'ReaderTest!2026', role: 'admin' }).expect(201);

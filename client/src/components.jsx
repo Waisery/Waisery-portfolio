@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight, Menu, X, LoaderCircle, AlertCircle, Check, Feather } from 'lucide-react';
 import { useAuth } from './context';
@@ -12,13 +12,20 @@ export function TextLink({ to, children, ...props }) { return <Link to={to} clas
 export function Header() {
   const { user, signOut } = useAuth();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef(null);
   const [scrolled, setScrolled] = useState(window.scrollY > 20);
   const location = useLocation();
   useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = event => { if (event.key === 'Escape') { setOpen(false); menuButton.current?.focus(); } };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [open]);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 20); window.addEventListener('scroll', update, { passive: true }); return () => window.removeEventListener('scroll', update); }, []);
   return <><a href="#main" className={s.skip}>Skip to content</a><header className={`${s.header} ${scrolled || location.pathname !== '/' || open ? s.headerSolid : ''}`}>
     <Link to="/" className={s.wordmark} aria-label="Waisery home">Waisery<span className={s.brandDot} /></Link>
-    <button type="button" className={s.menuButton} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+    <button ref={menuButton} type="button" className={s.menuButton} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     <nav id="site-nav" aria-label="Main navigation" className={`${s.nav} ${open ? s.navOpen : ''}`}>
       <NavLink to="/projects">Work</NavLink><NavLink to="/blog">Journal</NavLink><NavLink to="/about">About</NavLink><NavLink to="/contact">Contact</NavLink>
       <span className={s.navDivider} />
@@ -30,7 +37,7 @@ export function Footer() {
   return <footer className={s.footer}><div><Link className={s.wordmark} to="/">Waisery</Link><p>A space for thoughtful work.</p></div><nav aria-label="Footer navigation"><Link to="/projects">Work</Link><Link to="/blog">Journal</Link><Link to="/contact">Get in touch <ArrowUpRight size={14} /></Link></nav><span className={s.copyright}>© {new Date().getFullYear()} Waisery</span></footer>;
 }
 export function Status({ resource, children }) {
-  if (resource.loading) return <div role="status" className={s.status}><LoaderCircle className={s.spin} size={22} /><p>Loading...</p></div>;
+  if (resource.loading) return <div role="status" className={s.status}><LoaderCircle className={s.spin} size={22} /><p>{resource.slow ? 'Still loading. The service may need a moment to respond.' : 'Loading...'}</p></div>;
   if (resource.error) return <div role="alert" className={s.status}><AlertCircle size={24} /><h3>Unable to load this content</h3><p>{resource.error.message}</p><Button secondary onClick={resource.reload}>Try again</Button></div>;
   return children;
 }

@@ -59,10 +59,10 @@ For a database of your own, copy `server/.env.example` to `server/.env`, set `MO
 | Command | Purpose |
 |---|---|
 | `npm run dev` | Start the API and Vite together |
-| `npm test` | Run integration tests against an isolated real MongoDB process |
+| `npm test` | Run backend integration tests against an isolated real MongoDB process and frontend API-client tests |
 | `npm run build` | Build the frontend into `client/dist` |
 | `npm start` | Start the API; also serves `client/dist` if present |
-| `npm run check` | Run integration tests and the frontend production build |
+| `npm run check` | Run both test suites and the frontend production build |
 | `npm run seed` | Provision the explicitly configured administrator; optionally seed sample content |
 
 ## Project structure
