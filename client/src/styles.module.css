@@ -39,6 +39,8 @@
 .skip:focus { top: 12px; }
 .header { height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 5.2%; position: fixed; inset: 0 0 auto; z-index: 20; border-bottom: 1px solid transparent; background: rgba(250,247,240,.94); }
 .headerSolid { background: rgba(250,247,240,.97); border-color: var(--line); }
+.headerWhite { background: #fff; border-color: #e3e5df; }
+.headerWhite .navOpen { background: #fff; max-height: calc(100svh - 76px); overflow-y: auto; }
 .wordmark { font: 500 2.35rem/1 var(--serif); letter-spacing: -.045em; display: inline-flex; align-items: center; gap: 8px; }
 .brandDot { height: 5px; width: 5px; background: var(--gold); border-radius: 50%; align-self: flex-end; margin-bottom: 6px; }
 .nav { display: flex; align-items: center; gap: 28px; font-size: 16px; line-height: 1.5; }
@@ -136,6 +138,11 @@
 .projectDetails h2 { margin-bottom: 24px; }
 .projectDetails aside h3 { font-size: 1.7rem; }
 .prose { color: #5d5344; white-space: pre-wrap; max-width: 70ch; }
+.mediaPlayer { width: 100%; max-height: 72svh; display: block; background: #171915; border-radius: 6px; }
+.audioPlayer { width: 100%; margin: 24px 0; }
+.literaryBody { max-width: 68ch; margin: 50px auto; padding-top: 35px; border-top: 1px solid var(--line); }
+.literaryBody p { white-space: pre-wrap; overflow-wrap: anywhere; font: 400 clamp(1.25rem,2vw,1.5rem)/1.75 var(--serif); color: #4c4439; margin: 24px 0; }
+.literaryBody h2 { margin-bottom: 30px; }
 .externalLink { display: flex; gap: 12px; align-items: center; font-size: 13px; border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 10px; }
 .sampleNote { color: #796b55; font-size: 13px; line-height: 1.7; margin: 22px 0; }
 .aboutGrid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: start; gap: 8%; }
@@ -170,7 +177,7 @@
 .field { margin: 23px 0; display: flex; flex-direction: column; gap: 9px; }
 .field label { font-size: 14px; font-weight: 500; }
 .field label span { color: #8d6c3c; }
-.field input, .field textarea { border: 1px solid #c8bda9; border-radius: 5px; background: #fdfbf6; padding: 13px 14px; width: 100%; font-size: 16px; line-height: 1.5; }
+.field input, .field textarea, .field select { border: 1px solid #c8bda9; border-radius: 5px; background: #fdfbf6; padding: 13px 14px; width: 100%; font-size: 16px; line-height: 1.5; }
 .field input:focus, .field textarea:focus { outline: 2px solid #b69563; outline-offset: 2px; }
 .field textarea { resize: vertical; min-height: 90px; }
 .field input::placeholder, .field textarea::placeholder { color: #827560; opacity: 1; }

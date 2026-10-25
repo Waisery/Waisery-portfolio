@@ -1,0 +1,76 @@
+{
+  "assets": [
+    {
+      "source": "fe8_1080p.mp4",
+      "sourceSha256": "75515bfb69e686d0ad8bdfc8f2cf0f0872f53c7d92237dfd6eacc096263ae8b9",
+      "output": "client/public/media/fe8.mp4",
+      "outputSha256": "b78f333d500a47c16131f2178030e4a440cac8515f0dabfcb870b9d6fa74c5b4",
+      "preparation": "720p H.264/AAC viewing copy",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "jike.mp4",
+      "sourceSha256": "9e95665ce6ceb8f50e135eb9a90cb841732319f0770f361cafcab5a8a1ef866a",
+      "output": "client/public/media/jike.mp4",
+      "outputSha256": "906d85641c6e3fcd805277d97d020ed5c533496f91923b9098721df1651a9046",
+      "preparation": "720p H.264/AAC viewing copy",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "甍阙弥枋.wav",
+      "sourceSha256": "923590a48a698bfb55d31034bad388689a710ed1bc676068e5abcdace210d776",
+      "output": "client/public/media/mengque-mifang.mp3",
+      "outputSha256": "7b52c6a5661a4fde7c5c6ee1235a8329fdfcf8c6869b4f1fad2893550f262370",
+      "preparation": "192 kbps MP3 listening copy",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "fe8_1080p.mp4",
+      "sourceSha256": "75515bfb69e686d0ad8bdfc8f2cf0f0872f53c7d92237dfd6eacc096263ae8b9",
+      "output": "client/public/images/fe8-cover.webp",
+      "outputSha256": "912e0d40321e1914b85aaeb440bf3322b22081997c2abd704bdb1a47bb73046d",
+      "preparation": "Poster frame at 00:55",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "jike.mp4",
+      "sourceSha256": "9e95665ce6ceb8f50e135eb9a90cb841732319f0770f361cafcab5a8a1ef866a",
+      "output": "client/public/images/jike-cover.webp",
+      "outputSha256": "e24159b9f3a7e4f7f32f23341f49515af14a8fb913e57cb9c7666502d3579d5b",
+      "preparation": "Poster frame at 00:40",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "none.docx",
+      "sourceSha256": "f1268f617084a085c57598241e8e2f2c24cfdac0b0469d7a271e7ced8e5f886a",
+      "output": "server/src/content/spring-tide.txt",
+      "outputSha256": "2eccbc366fba6f36a9c8672c4764cdbde3660727d69ef3371949af188179bd61",
+      "preparation": "English edition with light copyediting",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "慢慢的数.docx",
+      "sourceSha256": "2e3e425e10bf7941aa7c43bae5206fcfcb12a5f44c1343238846cafb66d635c9",
+      "output": "server/src/content/counting-slowly.txt",
+      "outputSha256": "ce9389381caa372b450e8cbbdeb7f2a2dcdaa7857ddea4c07e7d355ff2cfa9c7",
+      "preparation": "English translation",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    },
+    {
+      "source": "斯若繁星，茫茫亦煌煌.docx",
+      "sourceSha256": "3652d38829b87cb74d48364fb1401e57353b02b2c9f565062b3b6a17ab7ee3fc",
+      "output": "server/src/content/like-stars.txt",
+      "outputSha256": "dffa3a9d880f8c8c9b74dab13bc062d6263054a98b3d47a24bf572511d8d5f6b",
+      "preparation": "English translation",
+      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "aiGenerated": false
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { readFile, stat } from 'node:fs/promises';
 import mongoose from 'mongoose';
 import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
@@ -144,6 +145,46 @@ test('deleting a post removes its comments, and project deletion is persisted', 
   await request(app).get(`/api/blog/${postId}`).expect(404);
   await request(app).delete(`/api/projects/${projectId}`).set('Authorization', bearer(admin)).expect(204); assert.equal(await Project.countDocuments(), 0);
 });
+test('literature remains readable after project creation and editing', async () => {
+  const payload = { title: 'A literary work', description: 'A complete literary project description.', mediaType: 'text', content: 'First line\nSecond line\n\nAnother stanza.', contentNote: 'English translation.', category: 'Literature' };
+  const created = await request(app).post('/api/projects').set('Authorization', bearer(admin)).send(payload).expect(201);
+  const path = `/api/projects/${created.body.project._id}`;
+  const read = await request(app).get(path).expect(200);
+  assert.equal(read.body.project.content, payload.content);
+  assert.equal(read.body.project.mediaType, 'text');
+  const updated = await request(app).put(path).set('Authorization', bearer(admin)).send({ ...payload, content: `${payload.content}\n\nFinal stanza.` }).expect(200);
+  assert.match(updated.body.project.content, /Final stanza/);
+});
+
+test('media projects persist playable URLs and reject unsafe or incomplete sources', async () => {
+  const payload = { title: 'A video work', description: 'A complete moving-image description.', mediaType: 'video', mediaUrl: '/media/film.mp4', category: 'Media' };
+  const result = await request(app).post('/api/projects').set('Authorization', bearer(admin)).send(payload).expect(201);
+  assert.equal(result.body.project.mediaUrl, payload.mediaUrl);
+  for (const mediaUrl of ['', 'javascript:alert(1)', '/media/../private.wav']) {
+    await request(app).post('/api/projects').set('Authorization', bearer(admin)).send({ ...payload, mediaUrl }).expect(400);
+  }
+  await request(app).post('/api/projects').set('Authorization', bearer(admin)).send({ ...payload, mediaType: 'audio', mediaUrl: '/media/listening.mp3' }).expect(201);
+  await request(app).post('/api/projects').set('Authorization', bearer(admin)).send({ ...payload, mediaType: 'text', content: '' }).expect(400);
+});
+
+test('all six approved works have valid content and existing web assets', async () => {
+  const { schemas } = await import('../src/middleware/validate.js');
+  const works = JSON.parse(await readFile(new URL('../src/content/works.json', import.meta.url), 'utf8'));
+  assert.equal(works.length, 6);
+  assert.equal(new Set(works.map(work => work.sourceKey)).size, 6);
+  assert.deepEqual([...new Set(works.map(work => work.category))].sort(), ['Art', 'Literature', 'Media']);
+  for (const { contentFile, sourceKey, ...work } of works) {
+    if (contentFile) work.content = await readFile(new URL(`../src/content/${contentFile}`, import.meta.url), 'utf8');
+    const valid = schemas.project.parse(work);
+    assert.equal(valid.sample, false);
+    assert.doesNotMatch([valid.title, valid.description, valid.content].join(' '), /\p{Script=Han}/u);
+    for (const path of [valid.imageUrl, valid.mediaUrl].filter(Boolean)) {
+      const info = await stat(new URL(`../../client/public${path}`, import.meta.url));
+      assert.ok(info.isFile() && info.size > 0, `Missing asset for ${sourceKey}`);
+    }
+  }
+});
+
 test('production refuses demo mode and missing or weak secrets', () => {
   const cwd = fileURLToPath(new URL('..', import.meta.url));
   for (const overrides of [{ DEMO_MODE: 'true' }, { DEMO_MODE: 'false', MONGODB_URI: '' }, { DEMO_MODE: 'false', MONGODB_URI: 'mongodb://localhost/test', JWT_SECRET: 'weak' }]) {

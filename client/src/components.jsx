@@ -23,7 +23,7 @@ export function Header() {
     return () => document.removeEventListener('keydown', closeOnEscape);
   }, [open]);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 20); window.addEventListener('scroll', update, { passive: true }); return () => window.removeEventListener('scroll', update); }, []);
-  return <><a href="#main" className={s.skip}>Skip to content</a><header className={`${s.header} ${scrolled || location.pathname !== '/' || open ? s.headerSolid : ''}`}>
+  return <><a href="#main" className={s.skip}>Skip to content</a><header className={`${s.header} ${scrolled || location.pathname !== '/' || open ? s.headerSolid : ''} ${location.pathname === '/' ? s.headerWhite : ''}`}>
     <Link to="/" className={s.wordmark} aria-label="Waisery home">Waisery<span className={s.brandDot} /></Link>
     <button ref={menuButton} type="button" className={s.menuButton} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     <nav id="site-nav" aria-label="Main navigation" className={`${s.nav} ${open ? s.navOpen : ''}`}>

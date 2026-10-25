@@ -1,0 +1,80 @@
+[
+  {
+    "sourceKey": "encountering-the-spring-tide",
+    "title": "Encountering the Spring Tide",
+    "description": "A poem that moves from the long winds of winter toward the return of spring. Cherry blossoms, thawing ice, and a sudden thread of light give shape to the possibility of beginning again.",
+    "category": "Literature",
+    "tags": ["Poetry", "Spring", "Renewal"],
+    "imageUrl": "/images/stillwater.webp",
+    "mediaType": "text",
+    "contentFile": "spring-tide.txt",
+    "contentNote": "An English edition lightly copyedited from the supplied poem. The cover is an illustrative artwork.",
+    "featured": false,
+    "sample": false
+  },
+  {
+    "sourceKey": "counting-slowly",
+    "title": "Counting Slowly",
+    "description": "After twenty-five years, Xu Xinci returns to a small town and counts her way back to a fountain, a garden of camellias, and a love that time has carried in different directions. A short story about memory, choice, and learning to let another person go.",
+    "category": "Literature",
+    "tags": ["Short fiction", "Memory", "Camellias"],
+    "imageUrl": "/images/fieldnotes.webp",
+    "mediaType": "text",
+    "contentFile": "counting-slowly.txt",
+    "contentNote": "English translation of the supplied Chinese short story. Character names are transliterated. The cover is an illustrative artwork.",
+    "featured": false,
+    "sample": false
+  },
+  {
+    "sourceKey": "like-stars",
+    "title": "Like Stars, Radiant Across the Vastness",
+    "description": "A search for the persistence of small lights: a solitary firefly, a moonlit sky, and the hope that distant glimmers might gather into something bright enough to meet the sun.",
+    "category": "Literature",
+    "tags": ["Poetry", "Light", "Hope"],
+    "imageUrl": "/images/jade-horizon.webp",
+    "mediaType": "text",
+    "contentFile": "like-stars.txt",
+    "contentNote": "English translation of the supplied Chinese poem. Line and stanza breaks follow the original. The cover is an illustrative artwork.",
+    "featured": true,
+    "sample": false
+  },
+  {
+    "sourceKey": "mengque-mifang",
+    "title": "Mengque Mifang",
+    "description": "An audio work presented as a complete listening piece. Take a moment with the original recording, away from the pace of the screen.",
+    "category": "Art",
+    "tags": ["Audio", "Listening", "2 min 42 sec"],
+    "imageUrl": "/images/veil-of-light.webp",
+    "mediaType": "audio",
+    "mediaUrl": "/media/mengque-mifang.mp3",
+    "contentNote": "The title is transliterated from the supplied recording. A compressed listening copy is provided; the original audio is preserved locally. The cover is an illustrative artwork.",
+    "featured": false,
+    "sample": false
+  },
+  {
+    "sourceKey": "fe8-video",
+    "title": "FE8",
+    "description": "A video work combining a presenter with a layered digital setting. The supplied film brings campus spaces and student life into a screen-based visual narrative.",
+    "category": "Media",
+    "tags": ["Video", "Campus", "1 min 54 sec"],
+    "imageUrl": "/images/fe8-cover.webp",
+    "mediaType": "video",
+    "mediaUrl": "/media/fe8.mp4",
+    "contentNote": "Presented in its original language, with an English overview. The cover is a frame from the supplied video. A web-optimized viewing copy is provided.",
+    "featured": false,
+    "sample": false
+  },
+  {
+    "sourceKey": "jike-video",
+    "title": "Jike",
+    "description": "A video work moving between close observation, technology, and the energy of student activity. Glimpses of screens, shared spaces, and a competition floor connect individual attention with a wider campus experience.",
+    "category": "Media",
+    "tags": ["Video", "Student life", "1 min 28 sec"],
+    "imageUrl": "/images/jike-cover.webp",
+    "mediaType": "video",
+    "mediaUrl": "/media/jike.mp4",
+    "contentNote": "Presented in its original language, with an English overview. The cover is a frame from the supplied video. A web-optimized viewing copy is provided.",
+    "featured": true,
+    "sample": false
+  }
+]

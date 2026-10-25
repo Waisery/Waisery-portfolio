@@ -15,3 +15,8 @@ artifacts/
 *.jpg
 ChatGPT*.png
 .impeccable/review/
+.impeccable/tools/
+/fe8_1080p.mp4
+/jike.mp4
+/*.wav
+server/.admin-credentials.local.txt
