@@ -32,3 +32,7 @@ Implement the supplied Full-Stack Portfolio & Blog specification as a React SPA 
 - The client has usable loading, failure, empty, validation, expired-session, and narrow-screen states.
 - Production refuses demo mode and missing/weak secrets; it never silently switches to example data.
 - Tests, build results, and deployment limitations are reported accurately.
+
+## Content reference update
+
+Use src.zip only to adapt the biography, learning focus, skills and contact information. Use Waisery as the public name; the user explicitly approved publishing the contact email. Ignore lab placeholders, the octocat feed, missing portrait assets, and console-only contact behavior. The final project collection will be Literature, Art, and Media; await the user's local materials before replacing the labeled demonstration collection. No project data is imported from the reference archive in this update.

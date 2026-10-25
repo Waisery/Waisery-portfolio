@@ -3,6 +3,9 @@ const { spawnSync } = require('node:child_process');
 const dotenv = require('dotenv');
 const result = spawnSync(process.env.GIT_BIN || 'git', ['-c', `safe.directory=${process.cwd()}`, 'diff', '--cached', '--name-only', '-z'], { encoding: 'utf8' });
 if (result.status !== 0) throw new Error('Cannot inspect the staged source files.');
+const required = ['package.json', 'package-lock.json', 'client/package.json', 'server/package.json', 'vercel.json', 'render.yaml'];
+const manifests = spawnSync(process.env.GIT_BIN || 'git', ['-c', `safe.directory=${process.cwd()}`, 'ls-files', '--error-unmatch', ...required], { encoding: 'utf8' });
+if (manifests.status !== 0) throw new Error('A required workspace or deployment manifest has not been added to Git.');
 const files = result.stdout.split('\0').filter(Boolean);
 const secrets = [];
 for (const file of ['server/.env', 'server/.env.production.local']) {

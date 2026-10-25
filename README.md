@@ -22,7 +22,7 @@ These are the owner's configured deployment targets. See `VERIFICATION.md` for t
 - Consistent JSON errors, request validation, URL validation, Helmet, CORS, rate limits, and graceful shutdown.
 - Real MongoDB for both local demonstration and production; no browser-only mock data.
 
-The biography, skills, projects, and articles initially included with the application are labeled illustrative content. Replace them with your own work. The illustrated celestial figure is artwork, not a portrait of the portfolio owner.
+The biography, learning focus, and contact information are adapted from the owner's reference frontend. Waisery is the public display name, and the owner explicitly approved publishing the contact email. The final showcase will cover Literature, Art, and Media once the owner supplies the local materials. Existing demonstration projects and articles remain labeled illustrative content. The illustrated celestial figure is artwork, not a portrait of the portfolio owner. See `CONTENT_SOURCES.md` for the source mapping.
 
 ## Requirements
 
