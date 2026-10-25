@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: waisery-api
+    runtime: node
+    buildCommand: npm ci --omit=dev --ignore-scripts
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: MONGODB_DB_NAME
+        value: waisery_portfolio
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        sync: false

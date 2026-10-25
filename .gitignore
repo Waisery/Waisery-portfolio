@@ -1,0 +1,17 @@
+node_modules/
+client/dist/
+.env
+.env.*
+!.env.example
+!.env.production.example
+.data/
+coverage/
+*.log
+_Project.zip
+artifacts/
+.impeccable/cache/
+.npm-cache/
+*.docx
+*.jpg
+ChatGPT*.png
+.impeccable/review/
