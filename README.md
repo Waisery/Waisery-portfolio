@@ -167,6 +167,8 @@ Generated illustration prompts and source-reference descriptions are recorded in
 
 The six current work covers are documented in `COVER_ARTWORK.json`. The two `major dissemination` films use the creator's supplied images; four literary/audio covers use natural photographic interpretations generated with built-in ImageGen. Full prompts, export paths and asset hashes are included. `TYPOGRAPHY_REVIEW.md` records the site-wide text sizing refinement and the outstanding browser verification scope.
 
+The About page groups the biography and contact links beside a courtyard study, followed by a separate exploration list. It stacks in reading order on small screens. `ABOUT_ARTWORK.json` records the built-in ImageGen prompt and exported asset hash; the image is conceptual artwork, not the owner's actual workspace.
+
 ## Submission
 
 The submission archive is named `_Project.zip`. It contains application source, artwork, lockfile, environment examples, deployment configuration, and documentation. Secret environment files, dependencies, local database files, caches, and generated build output are excluded. Production URLs must be checked after deployment before marking the hosted submission complete.

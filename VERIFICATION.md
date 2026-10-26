@@ -12,6 +12,7 @@ Last reviewed: October 26, 2026. The course specification remains the acceptance
 - Staged publication checks exclude private environment/credential files, local data, caches, and known local secret values.
 - The October 26 cover and typography revision passed the same 48-test suite and production build. The approved manifest checks distinct cover URLs, exact film titles and SHA-256 hashes for all six exported covers. The comment workflow test now waits for the asynchronous refreshed comment list after the publish confirmation.
 - `TYPOGRAPHY_REVIEW.md` documents the shared and mobile font-size changes. The four new generated covers were visually inspected as image outputs; this does not substitute for rendered page inspection. The two film covers use the supplied images directly, with WebP encoding only.
+- The subsequent About layout revision passed all 23 frontend API/interaction and React workflow tests plus the production build. It keeps profile content from the API, groups contact actions, separates the exploration list and adds responsive composition rules. The new courtyard image was inspected as an ImageGen output. Live desktop/mobile layout acceptance remains pending because the browser helper still fails to initialize. The layout detector returned an empty result alongside a batch-launcher error, so no clean automated layout verdict is claimed.
 
 ## Local browser checks completed before the tool interruption
 

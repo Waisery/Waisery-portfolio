@@ -1,0 +1,12 @@
+{
+  "createdAt": "2026-10-26",
+  "generator": "Built-in ImageGen",
+  "output": "client/public/images/about-courtyard-v1.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 316454,
+  "sha256": "b6b53cbf2c622f474ab38ee048b3c9c9a355324578438251c50cbf2040436433",
+  "prompt": "Use case: photorealistic-natural. Asset type: editorial photograph-style artwork for the About page of Waisery, an elegant contemporary Chinese portfolio. Primary request: a quiet, believable study beside a traditional Chinese wooden lattice window opening onto a modest real courtyard garden. A dark, naturally worn walnut writing desk in the foreground holds a simple open cream notebook with completely blank pages, a black pen and one understated celadon ceramic tea cup. The notebook is secondary; the beautiful spatial relationship of interior wood, daylight and the green courtyard is the subject. Outside: white plaster wall, aged grey roof tiles, a few slender bamboo stems and a small carefully kept garden after rain. Soft indirect daylight, natural surface imperfections, realistic perspective and restrained depth of field. Palette: warm ivory, dark brown wood, grey stone, muted bamboo green; a little quiet sunlight, never an overwhelming gold cast. Dignified, peaceful, refined photographic realism, ordinary human scale, 50mm architectural/editorial photography. Landscape 1536x1024 with main desk/window/garden scene safe for a centered 6:5 crop. This is conceptual AI-generated artwork, not a factual image of the owner's home. No people, no floating buildings, no cloud palaces, no surreal landscape, no ornate imperial props, no gold sparkle, no text, lettering, logos, watermarks, UI or borders.",
+  "usage": "Conceptual photographic artwork for the About page; not the owner's actual workspace.",
+  "transform": "WebP encoding only. The responsive layout applies a center crop."
+}
