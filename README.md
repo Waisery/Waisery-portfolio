@@ -26,7 +26,7 @@ The biography, learning focus, and contact information are adapted from the owne
 
 ## Requirements
 
-- Node.js 22.12 or newer; Node.js 24 is the deployment target.
+- Node.js 24.19.0 is recommended and used for verification. The complete test suite supports Node.js 22.22.2 or newer in the 22.x line, 24.15.0 or newer in the 24.x line, or 26.x and later.
 - npm and an internet connection for the first dependency installation.
 - MongoDB Atlas for production.
 
@@ -59,7 +59,7 @@ For a database of your own, copy `server/.env.example` to `server/.env`, set `MO
 | Command | Purpose |
 |---|---|
 | `npm run dev` | Start the API and Vite together |
-| `npm test` | Run backend integration tests against an isolated real MongoDB process and frontend API-client tests |
+| `npm test` | Run real-MongoDB API integration tests, frontend API/gesture tests, and React component workflow tests |
 | `npm run build` | Build the frontend into `client/dist` |
 | `npm start` | Start the API; also serves `client/dist` if present |
 | `npm run check` | Run both test suites and the frontend production build |
@@ -111,7 +111,7 @@ Use `Authorization: Bearer <token>` for protected endpoints. JSON request and re
 | GET | `/api/messages` | Administrator | Read the contact inbox |
 | PATCH | `/api/messages/:id` | Administrator | Change read/unread status |
 
-Registration accepts `username`, `email`, and `password`; it cannot grant an administrator role. Project payloads accept `title`, `description`, `imageUrl`, `repoUrl`, `liveUrl`, `category`, `tags`, `featured`, and `sample`. Article payloads accept `title`, `content`, `excerpt`, `imageUrl`, `category`, and `sample`. The server assigns owner/author IDs from the verified session rather than trusting request fields.
+Registration accepts `username`, `email`, and `password`; it cannot grant an administrator role. Project payloads accept `title`, `description`, `imageUrl`, `repoUrl`, `liveUrl`, `category`, `tags`, `featured`, `sample`, `mediaType`, `mediaUrl`, `content`, and `contentNote`. Article payloads accept `title`, `content`, `excerpt`, `imageUrl`, `category`, and `sample`. The server assigns owner/author IDs from the verified session rather than trusting request fields.
 
 Passwords use bcrypt through the pure-JavaScript `bcryptjs` implementation, with 12 salt rounds and a validated 72-byte maximum. Tokens expire after eight hours and are verified for signature algorithm, issuer, and audience. Browser sessions are stored in sessionStorage and cleared on sign-out or an authentication rejection.
 
@@ -178,3 +178,7 @@ Projects support `mediaType` values `image`, `text`, `video`, and `audio`, toget
 Stop the local development server before a local command-line import, because both use the same persistent demo database directory. An import requires explicitly configured administrator credentials. `npm run import:works -- --production` reads the ignored `server/.env.production.local` file and targets its Atlas database. It provisions that configured administrator if absent and upserts only the six stable source keys. It preserves unrelated records and never runs automatically at server start. Re-running the import replaces imported fields for these six works, so preserve later dashboard edits before choosing to import again. Production imports do not add sample content.
 
 The generated production administrator credentials are stored only in the ignored local file `server/.admin-credentials.local.txt`. They are excluded from Git and `_Project.zip`.
+
+## Specification audit
+
+SPEC_COMPLIANCE.md maps every specification phase, required model field, mandatory endpoint, route, and submission item to source and verification evidence. The complete suite contains 25 real-MongoDB backend integration tests, 12 frontend API/gesture tests, and 11 React component workflow tests using an isolated test API. It distinguishes this automated evidence from outstanding live browser acceptance and the currently empty production journal.

@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { readFile, stat } from 'node:fs/promises';
 import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
@@ -67,9 +68,26 @@ test('registration validates missing fields and bcrypt byte limit', async () => 
   assert.ok(invalid.body.error.fields.email); assert.ok(invalid.body.error.fields.password);
   await request(app).post('/api/users/register').send({ username: 'LongPassword', email: 'long@example.com', password: '界'.repeat(30) }).expect(400);
 });
+
+test('each specified model rejects its missing required fields', () => {
+  const cases = [
+    [User, ['username', 'email', 'password']],
+    [Project, ['title', 'description', 'user']],
+    [BlogPost, ['title', 'content', 'author']],
+    [Comment, ['body', 'author', 'post']],
+    [Message, ['name', 'email', 'message']],
+  ];
+  for (const [Model, fields] of cases) {
+    const error = new Model({}).validateSync();
+    for (const field of fields) assert.ok(error.errors[field], `${Model.modelName}.${field} must be required`);
+  }
+  assert.ok(new User({ username: 'Valid', email: 'valid@example.com', password: 'short' }).validateSync().errors.password);
+});
 test('duplicate identities return a safe conflict response', async () => {
   const res = await request(app).post('/api/users/register').send({ username: 'Other', email: 'alice@example.com', password: 'ValidPass123' }).expect(409);
   assert.match(res.body.error.message, /already in use/);
+  const username = await request(app).post('/api/users/register').send({ username: 'Alice', email: 'different@example.com', password: 'ValidPass123' }).expect(409);
+  assert.match(username.body.error.message, /Username/);
 });
 test('login accepts the correct password and rejects incorrect credentials', async () => {
   const res = await request(app).post('/api/users/login').send({ email: 'ALICE@example.com', password: 'AliceTest!2026' }).expect(200);
@@ -82,6 +100,27 @@ test('authentication rejects missing, invalid and tampered tokens', async () => 
   const token = issueSession(alice).token;
   await request(app).get('/api/users/me').set('Authorization', `Bearer ${token.slice(0, -5)}wrong`).expect(401);
   const res = await request(app).get('/api/users/me').set('Authorization', bearer(alice)).expect(200); assert.equal(res.body.user._id, String(alice._id));
+});
+
+test('JWTs carry the user ID and reject expiry, wrong issuer, wrong audience and missing accounts', async () => {
+  const { config } = await import('../src/config.js');
+  const issued = jwt.verify(issueSession(alice).token, config.jwtSecret, { algorithms: ['HS256'], issuer: 'waisery-api', audience: 'waisery-client' });
+  assert.equal(issued.sub, String(alice._id));
+  assert.equal(issued.exp - issued.iat, 8 * 60 * 60);
+  for (const overrides of [{ expiresIn: -1 }, { issuer: 'other-api' }, { audience: 'other-client' }, { subject: String(new mongoose.Types.ObjectId()) }]) {
+    const token = jwt.sign({}, config.jwtSecret, { subject: String(alice._id), issuer: 'waisery-api', audience: 'waisery-client', expiresIn: '8h', ...overrides });
+    await request(app).get('/api/users/me').set('Authorization', `Bearer ${token}`).expect(401);
+  }
+});
+
+test('every required protected write rejects anonymous access and project writes reject authors', async () => {
+  const id = '000000000000000000000000';
+  for (const [method, path] of [['post', '/api/projects'], ['put', `/api/projects/${id}`], ['delete', `/api/projects/${id}`], ['post', '/api/blog'], ['put', `/api/blog/${id}`], ['delete', `/api/blog/${id}`], ['post', `/api/blog/${id}/comments`]]) {
+    await request(app)[method](path).send({}).expect(401);
+  }
+  for (const [method, path] of [['post', '/api/projects'], ['put', `/api/projects/${id}`], ['delete', `/api/projects/${id}`]]) {
+    await request(app)[method](path).set('Authorization', bearer(alice)).send({}).expect(403);
+  }
 });
 test('only administrators can create portfolio projects and ownership comes from the session', async () => {
   const payload = { title: 'Test project', description: 'A complete project description.', imageUrl: '/images/stillwater.webp', tags: ['React'], user: String(bob._id) };

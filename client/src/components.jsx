@@ -56,7 +56,9 @@ export function Artwork({ src, alt, className = '', eager = false }) {
   return src && !failed ? <img className={className} src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => setFailed(true)} /> : <div className={`${s.artFallback} ${className}`} role="img" aria-label={alt}><Feather size={36} /></div>;
 }
 export function ProjectCard({ project }) {
-  return <article className={s.projectCard}><Link to={`/projects/${project._id}`} className={s.projectImage}><Artwork src={project.imageUrl} alt={`${project.title} project artwork`} /><span className={s.imageArrow}><ArrowUpRight size={23} /></span></Link><div className={s.projectTitle}><h3><Link to={`/projects/${project._id}`}>{project.title}</Link></h3><span>{project.category}</span></div><p>{project.description.split('. ')[0]}.</p><div className={s.tags}>{project.tags?.map(tag => <span key={tag}>{tag}</span>)}{project.sample && <span>Sample project</span>}</div></article>;
+  const firstSentence = project.description.split('. ')[0].trim();
+  const summary = /[.!?…]$/.test(firstSentence) ? firstSentence : `${firstSentence}.`;
+  return <article className={s.projectCard}><Link to={`/projects/${project._id}`} className={s.projectImage}><Artwork src={project.imageUrl} alt={`${project.title} project artwork`} /><span className={s.imageArrow}><ArrowUpRight size={23} /></span></Link><div className={s.projectTitle}><h3><Link to={`/projects/${project._id}`}>{project.title}</Link></h3><span>{project.category}</span></div><p>{summary}</p><div className={s.tags}>{project.tags?.map(tag => <span key={tag}>{tag}</span>)}{project.sample && <span>Sample project</span>}</div></article>;
 }
 export const readingTime = content => `${Math.max(1, Math.ceil((content || '').split(/\s+/).length / 200))} min read`;
 export const date = value => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });

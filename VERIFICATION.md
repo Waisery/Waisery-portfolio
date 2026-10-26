@@ -1,14 +1,14 @@
 # Verification record
 
-Last reviewed: October 25, 2026. The course specification remains the acceptance standard. See AUDIT.md for the earlier findings and MEDIA_PROVENANCE.json for supplied-work preparation.
+Last reviewed: October 26, 2026. The course specification remains the acceptance standard. See AUDIT.md for the earlier findings and MEDIA_PROVENANCE.json for supplied-work preparation.
 
 ## Automated verification
 
-- Twenty-two backend integration tests passed against an isolated, real MongoDB 7.0.24 process.
-- Twelve frontend API-client and presentation-interaction tests passed.
+- Twenty-five backend integration tests passed against an isolated, real MongoDB 7.0.24 process.
+- Twelve frontend API-client/presentation-interaction tests and eleven React component workflow tests passed: 48 tests in total across the complete application.
 - The frontend production build completed successfully.
 - Coverage includes authentication, hashed passwords, role/ownership enforcement, CRUD, comments, contact persistence, inbox permissions, validation, error handling, CORS, timeouts/cancellation, text/media project persistence, unsafe media sources, and the six approved work records/assets.
-- Presentation tests cover trackpad momentum, gesture reversal, transition locks, and nested reading boundaries. A server-rendered structural check confirmed the homepage renders without runtime errors and inactive chapters are hidden and inert.
+- Presentation tests cover trackpad momentum, gesture reversal, transition locks, and nested reading boundaries. React component tests additionally exercise protected redirects, registration, login/return destinations, comments, contact retry/success, project/article CRUD with Bearer tokens, ownership-aware controls, session verification/retry, literary/media rendering, record changes, and homepage exit cleanup. These use jsdom and an isolated test API, not a live browser.
 - Staged publication checks exclude private environment/credential files, local data, caches, and known local secret values.
 
 ## Local browser checks completed before the tool interruption
@@ -40,3 +40,9 @@ The subsequent pure-white chapter presentation was compiled and structurally tes
 4. Complete a live browser authenticated workflow, including content updates, comments, contact submission, and inbox confirmation. Backend integration coverage and the successful live login/read checks establish only their stated scope.
 
 Production administrator credentials are available only in the ignored local file server/.admin-credentials.local.txt, excluded from Git and _Project.zip.
+
+## October 26 specification audit
+
+See SPEC_COMPLIANCE.md for the complete phase-by-phase, model-field, endpoint, route, and submission matrix. Three reproduced client defects were fixed: comment drafts retained between article IDs, duplicate project-summary punctuation, and joined accessible words in the homepage title. Dynamic detail routes now remount per ID. The complete test/build command passed after these corrections.
+
+Current production reads returned six projects and zero blog posts; a health retry returned a connected production database, and administrator login/current-user verification succeeded. Invalid-input and unauthenticated probes check the live validation/guard contract without changing formal works. The first health call timed out at 30 seconds, so cold-start latency remains an observed limitation. Browser initialization failed again; no new live browser or visual acceptance is claimed.
