@@ -77,7 +77,7 @@ describe('specification client workflows with an isolated test API', () => {
     await screen.findByRole('heading', { name: 'First article' });
     fill('Your comment', 'A meaningful response.'); submit('Publish comment');
     await screen.findByText('Your comment has been published.');
-    expect(screen.getByText('A meaningful response.')).toBeTruthy();
+    expect(await screen.findByText('A meaningful response.')).toBeTruthy();
     expect(writes(fetch, '/blog/post-a/comments', 'POST')[0][1].headers.Authorization).toBe('Bearer comment-token');
     fireEvent.click(screen.getByRole('button', { name: 'Sign out' }));
     await waitFor(() => expect(screen.queryByLabelText('Your comment')).toBeNull());

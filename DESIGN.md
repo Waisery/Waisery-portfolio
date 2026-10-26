@@ -66,7 +66,7 @@ typography:
     letterSpacing: "-.025em"
   body:
     fontFamily: "'DM Sans', sans-serif"
-    fontSize: "16px"
+    fontSize: "1rem"
     lineHeight: 1.75
   literature:
     fontFamily: "'Cormorant Garamond', Georgia, serif"
@@ -75,15 +75,15 @@ typography:
     lineHeight: 1.75
   navigation:
     fontFamily: "'DM Sans', sans-serif"
-    fontSize: "16px"
+    fontSize: "1rem"
     lineHeight: 1.5
   label:
     fontFamily: "'DM Sans', sans-serif"
-    fontSize: "14px"
+    fontSize: ".9375rem"
     fontWeight: 500
   button:
     fontFamily: "'DM Sans', sans-serif"
-    fontSize: "14px"
+    fontSize: ".9375rem"
     fontWeight: 500
     lineHeight: 1.3
 rounded:

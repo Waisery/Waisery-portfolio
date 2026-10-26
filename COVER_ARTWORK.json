@@ -1,0 +1,103 @@
+{
+  "createdAt": "2026-10-26",
+  "generator": "Built-in ImageGen (four interpretive covers only)",
+  "creativeProductionUsed": false,
+  "assets": [
+    {
+      "key": "major-dissemination-1",
+      "title": "major dissemination_1",
+      "kind": "user-supplied image",
+      "reference": "codex-clipboard-abc306ba-2646-4607-8a3f-bd15086d592f.png",
+      "prompt": null,
+      "output": "client/public/images/covers/major-dissemination-1-v1.webp",
+      "sourceFile": "codex-clipboard-abc306ba-2646-4607-8a3f-bd15086d592f.png",
+      "sha256": "1ba3139e2bc9698d0b7f00361453607f905fe747ffd4180087a430c7994ce072",
+      "dimensions": {
+        "width": 1762,
+        "height": 992
+      },
+      "bytes": 201264,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    },
+    {
+      "key": "major-dissemination-2",
+      "title": "major dissemination_2",
+      "kind": "user-supplied image",
+      "reference": "codex-clipboard-d032efa3-fcb2-46ca-b13f-2ea520ba4b73.png",
+      "prompt": null,
+      "output": "client/public/images/covers/major-dissemination-2-v1.webp",
+      "sourceFile": "codex-clipboard-d032efa3-fcb2-46ca-b13f-2ea520ba4b73.png",
+      "sha256": "9aab208d5fea82d50240d0bc9de016be7605c0e38e05adbd424be196f7f5b2e1",
+      "dimensions": {
+        "width": 1767,
+        "height": 828
+      },
+      "bytes": 379526,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    },
+    {
+      "key": "spring-tide-cover",
+      "title": "Encountering the Spring Tide",
+      "kind": "AI-generated photographic interpretation",
+      "reference": null,
+      "prompt": "Use case: photorealistic-natural. Asset type: portfolio cover. A real-looking editorial landscape photograph of the first days of spring in northern China: thin translucent lake ice melting at the shore, one modest naturally blooming cherry branch near the edge, pale green water and a few fallen petals. Ordinary woodland in the background. Soft overcast morning, muted natural colors, believable botanical detail, physically plausible reflections, slight lens depth. Quiet and hopeful. No gold glow, fantasy, painterly texture, artificial sparkle, impossible scenery, text, logo or people. Wide landscape 1536x1024, central crop safe for a portfolio cover. AI-generated photographic interpretation of a poem, not documentary evidence.",
+      "output": "client/public/images/covers/spring-tide-cover-v1.webp",
+      "sourceFile": "exec-6308b16e-3cab-4cc1-b4a1-f91f77fa35b0.png",
+      "sha256": "e0cc4cd17db91c31015f76d5a040a9a44cb596eef5826575724ee9d362a6d833",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bytes": 388428,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    },
+    {
+      "key": "counting-slowly-cover",
+      "title": "Counting Slowly",
+      "kind": "AI-generated photographic interpretation",
+      "reference": null,
+      "prompt": "Use case: photorealistic-natural. Asset type: portfolio cover. A natural, realistic editorial photograph of a quiet lived-in small-town courtyard in southern China in April. Weathered stone path and low stone wall, a modest two-storey whitewashed house with ordinary grey tiles, a small simple old stone fountain, one red camellia shrub and a few fallen petals. One anonymous adult woman seen from behind at a distance beside the fountain, in everyday muted clothes. Overcast daylight after light rain, soft honest colors, imperfect everyday surfaces, understated nostalgia. No elaborate mansion, epic mountain vista, cinematic gold sunlight, fantasy, illustration, text or logo. Wide landscape 1536x1024, central crop safe for a portfolio cover. AI-generated photographic interpretation of fiction.",
+      "output": "client/public/images/covers/counting-slowly-cover-v1.webp",
+      "sourceFile": "exec-074d7bb7-8897-4f99-9c53-f074e3ead6e1.png",
+      "sha256": "2bbb84eba79258502f7df4639bd02bec7980b6d6067d5176f8f0836f7337b284",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bytes": 609860,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    },
+    {
+      "key": "like-stars-cover",
+      "title": "Like Stars, Radiant Across the Vastness",
+      "kind": "AI-generated photographic interpretation",
+      "reference": null,
+      "prompt": "Use case: photorealistic-natural. Asset type: portfolio cover. A restrained realistic night landscape photograph of a quiet mountain lake in rural China. Distant low dark hills and ordinary trees, modest scattered stars in a dark blue sky with a slight pale dawn at the horizon, faint physically plausible reflections on still water. A tiny single warm firefly point near the reeds at the foreground edge, NOT a giant insect and NOT glowing ripples. The feeling is one small light finding hope in vast darkness. Real camera long-exposure look, subtle grain, natural muted midnight blue, no huge moon, impossible Milky Way, star-shaped sparkle, fantasy mountains, illustration, gold magic, text or logo. Wide landscape 1536x1024 with crop-safe main scene. AI-generated photographic interpretation of a poem.",
+      "output": "client/public/images/covers/like-stars-cover-v1.webp",
+      "sourceFile": "exec-adb05653-68f3-43d3-83b2-17ce21eaffdb.png",
+      "sha256": "209742b5ae2e2f0fe86df21daaba18ab5ad8a3da5262f7d47c839130fb2695b9",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bytes": 129042,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    },
+    {
+      "key": "mengque-mifang-cover",
+      "title": "Mengque Mifang",
+      "kind": "AI-generated photographic interpretation",
+      "reference": null,
+      "prompt": "Use case: photorealistic-natural. Asset type: portfolio cover. A realistic architectural detail photograph looking upward beneath the eaves of an old traditional Chinese wooden building. Authentic weathered timber beams, structurally coherent dougong brackets, aged grey clay roof tiles, subtle wear and modest restrained craftsmanship, a quiet courtyard gate softly out of focus beyond. Soft cloudy daylight, true wood grain, natural brown, grey and muted green, calm and contemplative. Cover concept for an audio work whose title evokes roof ridges, gateways and timber beams; do not imply a particular instrument or actual recording location. No golden sound waves, floating structures, ornate imperial fantasy, mystical mist, people, instruments, music notation, text or logo. Wide landscape 1536x1024, center crop safe, refined documentary photographic style.",
+      "output": "client/public/images/covers/mengque-mifang-cover-v1.webp",
+      "sourceFile": "exec-ab33c3ab-19a4-4e43-9e68-f62c8f15d514.png",
+      "sha256": "dc09edcc25bc0416e7fdd2d753802e95e6ab4283d786267d2191860fc587cb86",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bytes": 389550,
+      "transform": "WebP encoding only; original composition preserved. Display crops are applied by the gallery."
+    }
+  ]
+}

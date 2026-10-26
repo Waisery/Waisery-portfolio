@@ -10,6 +10,8 @@ Last reviewed: October 26, 2026. The course specification remains the acceptance
 - Coverage includes authentication, hashed passwords, role/ownership enforcement, CRUD, comments, contact persistence, inbox permissions, validation, error handling, CORS, timeouts/cancellation, text/media project persistence, unsafe media sources, and the six approved work records/assets.
 - Presentation tests cover trackpad momentum, gesture reversal, transition locks, and nested reading boundaries. React component tests additionally exercise protected redirects, registration, login/return destinations, comments, contact retry/success, project/article CRUD with Bearer tokens, ownership-aware controls, session verification/retry, literary/media rendering, record changes, and homepage exit cleanup. These use jsdom and an isolated test API, not a live browser.
 - Staged publication checks exclude private environment/credential files, local data, caches, and known local secret values.
+- The October 26 cover and typography revision passed the same 48-test suite and production build. The approved manifest checks distinct cover URLs, exact film titles and SHA-256 hashes for all six exported covers. The comment workflow test now waits for the asynchronous refreshed comment list after the publish confirmation.
+- `TYPOGRAPHY_REVIEW.md` documents the shared and mobile font-size changes. The four new generated covers were visually inspected as image outputs; this does not substitute for rendered page inspection. The two film covers use the supplied images directly, with WebP encoding only.
 
 ## Local browser checks completed before the tool interruption
 

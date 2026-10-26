@@ -211,6 +211,16 @@ test('all six approved works have valid content and existing web assets', async 
   const works = JSON.parse(await readFile(new URL('../src/content/works.json', import.meta.url), 'utf8'));
   assert.equal(works.length, 6);
   assert.equal(new Set(works.map(work => work.sourceKey)).size, 6);
+  assert.equal(new Set(works.map(work => work.imageUrl)).size, 6);
+  assert.equal(works.find(work => work.sourceKey === 'jike-video').title, 'major dissemination_1');
+  assert.equal(works.find(work => work.sourceKey === 'fe8-video').title, 'major dissemination_2');
+  const artwork = JSON.parse(await readFile(new URL('../../COVER_ARTWORK.json', import.meta.url), 'utf8'));
+  const { createHash } = await import('node:crypto');
+  for (const asset of artwork.assets) {
+    const file = await readFile(new URL(`../../${asset.output}`, import.meta.url));
+    assert.equal(createHash('sha256').update(file).digest('hex'), asset.sha256);
+    assert.ok(works.some(work => work.imageUrl === `/${asset.output.replace('client/public/', '')}`));
+  }
   assert.deepEqual([...new Set(works.map(work => work.category))].sort(), ['Art', 'Literature', 'Media']);
   for (const { contentFile, sourceKey, ...work } of works) {
     if (contentFile) work.content = await readFile(new URL(`../src/content/${contentFile}`, import.meta.url), 'utf8');
