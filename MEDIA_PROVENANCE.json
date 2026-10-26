@@ -50,7 +50,7 @@
       "sourceSha256": "f1268f617084a085c57598241e8e2f2c24cfdac0b0469d7a271e7ced8e5f886a",
       "output": "server/src/content/spring-tide.txt",
       "outputSha256": "2eccbc366fba6f36a9c8672c4764cdbde3660727d69ef3371949af188179bd61",
-      "preparation": "English edition with light copyediting",
+      "preparation": "English edition with light copyediting; LF line endings",
       "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
       "aiGenerated": false
     },
@@ -59,7 +59,7 @@
       "sourceSha256": "2e3e425e10bf7941aa7c43bae5206fcfcb12a5f44c1343238846cafb66d635c9",
       "output": "server/src/content/counting-slowly.txt",
       "outputSha256": "ce9389381caa372b450e8cbbdeb7f2a2dcdaa7857ddea4c07e7d355ff2cfa9c7",
-      "preparation": "English translation",
+      "preparation": "English translation; LF line endings",
       "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
       "aiGenerated": false
     },
@@ -68,7 +68,7 @@
       "sourceSha256": "3652d38829b87cb74d48364fb1401e57353b02b2c9f565062b3b6a17ab7ee3fc",
       "output": "server/src/content/like-stars.txt",
       "outputSha256": "dffa3a9d880f8c8c9b74dab13bc062d6263054a98b3d47a24bf572511d8d5f6b",
-      "preparation": "English translation",
+      "preparation": "English translation; LF line endings",
       "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
       "aiGenerated": false
     }
