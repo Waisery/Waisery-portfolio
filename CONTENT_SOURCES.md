@@ -25,7 +25,7 @@ The archive's Personal Portfolio and E-Commerce Back-end entries are not importe
 | `慢慢的数.docx` | Counting Slowly | English translation of the complete short story; names transliterated. |
 | `斯若繁星，茫茫亦煌煌.docx` | Like Stars, Radiant Across the Vastness | English translation retaining the stanza structure. |
 | `甍阙弥枋.wav` | Mengque Mifang | Full audio, converted to a 192 kbps MP3 listening copy; title transliterated. |
-| `fe8_1080p.mp4` | FE8 | Full 720p web viewing copy with a poster frame at 00:55. |
-| `jike.mp4` | Jike | Full 720p web viewing copy with a poster frame at 00:40. |
+| `fe8_1080p.mp4` | major dissemination_2 | Full 720p web viewing copy; cover uses the supplied campus image. |
+| `jike.mp4` | major dissemination_1 | Full 720p web viewing copy; cover uses the supplied College of Artificial Intelligence image. |
 
-The owner explicitly approved public display and subsequently authorized production administrator provisioning and import into `waisery_portfolio`. Source originals are preserved locally. Raw document metadata is not published. Recordings retain their original language; the website's titles, descriptions, and controls are English. Video covers are extracted frames; literary and audio covers reuse identified illustrative artwork. No additional production-role, client, award, or authorship claims are inferred from the recordings.
+The owner approved public display and authorized production administrator provisioning and import into `waisery_portfolio`. Source originals are preserved locally. Raw document metadata is not published. Recordings retain their original language; the website's titles, descriptions, and controls are English. The two video covers use creator-supplied images. The literary and audio covers are photographic interpretations generated with ImageGen; `COVER_ARTWORK.json` records their prompts and hashes. The recordings do not establish any additional production role, client, award, or authorship claim.

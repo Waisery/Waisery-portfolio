@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const { spawnSync } = require('node:child_process');
 const dotenv = require('dotenv');
-const result = spawnSync(process.env.GIT_BIN || 'git', ['-c', `safe.directory=${process.cwd()}`, 'diff', '--cached', '--name-only', '-z'], { encoding: 'utf8' });
+const result = spawnSync(process.env.GIT_BIN || 'git', ['-c', `safe.directory=${process.cwd()}`, 'diff', '--cached', '--diff-filter=ACMR', '--name-only', '-z'], { encoding: 'utf8' });
 if (result.status !== 0) throw new Error('Cannot inspect the staged source files.');
 const required = ['package.json', 'package-lock.json', 'client/package.json', 'server/package.json', 'vercel.json', 'render.yaml'];
 const manifests = spawnSync(process.env.GIT_BIN || 'git', ['-c', `safe.directory=${process.cwd()}`, 'ls-files', '--error-unmatch', ...required], { encoding: 'utf8' });

@@ -1,51 +1,44 @@
 # Verification record
 
-Last reviewed: October 26, 2026. The course specification remains the acceptance standard. See AUDIT.md for the earlier findings and MEDIA_PROVENANCE.json for supplied-work preparation.
+Reviewed on October 26, 2026 (Asia/Shanghai). The acceptance standard is `Capstone Project Specification.md`. `SPEC_COMPLIANCE.md` maps its requirements to the implementation; `RUBRIC_REVIEW.md` records the twelve grading categories and their verification limits.
 
-## Automated verification
+## Automated checks
 
-- Twenty-five backend integration tests passed against an isolated, real MongoDB 7.0.24 process.
-- Twelve frontend API-client/presentation-interaction tests and eleven React component workflow tests passed: 48 tests in total across the complete application.
-- The frontend production build completed successfully.
-- Coverage includes authentication, hashed passwords, role/ownership enforcement, CRUD, comments, contact persistence, inbox permissions, validation, error handling, CORS, timeouts/cancellation, text/media project persistence, unsafe media sources, and the six approved work records/assets.
-- Presentation tests cover trackpad momentum, gesture reversal, transition locks, and nested reading boundaries. React component tests additionally exercise protected redirects, registration, login/return destinations, comments, contact retry/success, project/article CRUD with Bearer tokens, ownership-aware controls, session verification/retry, literary/media rendering, record changes, and homepage exit cleanup. These use jsdom and an isolated test API, not a live browser.
-- Staged publication checks exclude private environment/credential files, local data, caches, and known local secret values.
-- The October 26 cover and typography revision passed the same 48-test suite and production build. The approved manifest checks distinct cover URLs, exact film titles and SHA-256 hashes for all six exported covers. The comment workflow test now waits for the asynchronous refreshed comment list after the publish confirmation.
-- `TYPOGRAPHY_REVIEW.md` documents the shared and mobile font-size changes. The four new generated covers were visually inspected as image outputs; this does not substitute for rendered page inspection. The two film covers use the supplied images directly, with WebP encoding only.
-- The subsequent About layout revision passed all 23 frontend API/interaction and React workflow tests plus the production build. It keeps profile content from the API, groups contact actions, separates the exploration list and adds responsive composition rules. The new courtyard image was inspected as an ImageGen output. Live desktop/mobile layout acceptance remains pending because the browser helper still fails to initialize. The layout detector returned an empty result alongside a batch-launcher error, so no clean automated layout verdict is claimed.
+`npm run check` passes 48 tests and builds the frontend:
 
-## Local browser checks completed before the tool interruption
+- 25 backend integration tests run against a real isolated MongoDB process.
+- 12 frontend API and presentation-interaction tests cover request handling, cancellation, timeouts and gesture boundaries.
+- 11 React workflow tests use jsdom and an isolated test API to exercise forms, authentication, routing, project/article management, comments and content rendering.
 
-Public API content, project search/no-results recovery, project detail, administrator sign-in, project editing/saving, logout, author registration/role separation, contact submission, inbox receipt, and mark-as-read were exercised. Desktop and mobile header/footer typography and the prior hero transition were visually inspected.
+The suite checks required model fields, password hashes, duplicate identities, JWT subject/expiry/issuer/audience, anonymous and role-based restrictions, original-author permissions, CRUD persistence, populated relationships, contact/inbox behavior and consistent errors. Work asset checks include distinct cover paths, the approved film titles and file hashes.
 
-The subsequent pure-white chapter presentation was compiled and structurally tested, but has not received a browser visual or gesture acceptance pass. Browser automation stopped because its Windows helper could not initialize. Earlier screenshots are historical evidence and do not show the new presentation. An independent review returned `recapture` because the old full-page desktop evidence omitted a lazy-loaded image. No visual ship verdict or automated Impeccable comp-diff/build-gate pass is claimed.
-
-## Production observations
+## Production checks
 
 - Frontend: https://waisery-portfolio.vercel.app/
 - API: https://waisery-api.onrender.com/api
+- Health: https://waisery-api.onrender.com/api/health
 - Repository: https://github.com/Waisery/Waisery-portfolio
-- Application release `c812fc8` adds the pure-white five-chapter presentation, keyframed motion, media/text projects, six approved works, native media players, dashboard fields, and source provenance.
-- Vercel deployment `dpl_4318bhecNv96cvE8itV1Vc8199xw` reached READY and has the production domain assigned.
-- API health returned HTTP 200 with a connected production database. The frontend origin is allowed, authenticated preflights pass, and an unrelated origin receives no allow-origin header.
-- The owner explicitly approved public display of the six supplied works, then separately authorized production administrator provisioning and import. The import completed successfully, preserving unrelated data.
-- GET /api/projects returned six real works: three Literature entries, two Media videos, and one Art audio entry. All are labeled sample=false.
-- The configured administrator successfully signed in through the production API. GET /api/users/me confirmed the Waisery administrator role, and GET /api/messages returned HTTP 200 with the correct CORS header. No credentials or tokens were printed or committed.
-- Both videos returned HTTP 206, Content-Type video/mp4, and a correct byte range. The audio returned HTTP 206 with audio/mpeg. These checks establish media availability and seekable delivery; they do not establish a completed browser playback review.
-- An earlier deployment check confirmed all public/protected route URLs return the SPA entry correctly, and the frontend bundle embeds the production API URL rather than a localhost endpoint.
-- The Render connector cannot access the owner's Waisery workspace. Public API behavior is verified; deployment control-plane logs were unavailable.
 
-## Remaining acceptance
+The October 26 rubric check completed 32 expected API responses. These included health, profile, all six project details, an empty journal list, administrator login/current-user/inbox reads, CORS/preflight, invalid input and rejected unauthenticated writes. It created no accounts or content. Ten frontend routes returned the SPA document; this confirms deep-link delivery, not execution of client-side behavior in a browser.
 
-1. Complete visual, keyboard, wheel, touch, focus, overflow, reduced-motion, and media playback checks of the new presentation when browser access is restored. Capture current desktop/mobile evidence and repeat the independent review.
-2. Review the English literary editions and descriptive text editorially. Source originals are preserved; translations and illustrative covers are identified on the public pages.
-3. Publish original journal articles when available. Portfolio literary works are not duplicated into the journal, and no sample articles are published as original writing.
-4. Complete a live browser authenticated workflow, including content updates, comments, contact submission, and inbox confirmation. Backend integration coverage and the successful live login/read checks establish only their stated scope.
+Direct Atlas checks confirmed the `waisery_portfolio` database, unique username/email indexes, bcrypt storage for the configured administrator, and no orphaned current project/author/comment references. At that check, production held one user and six projects, with no journal posts, comments or messages. Successful content writes and registration were tested in the isolated database.
 
-Production administrator credentials are available only in the ignored local file server/.admin-credentials.local.txt, excluded from Git and _Project.zip.
+The first live health request took about 27.5 seconds from the checking client. The cause was not diagnosed. The application provides a 65-second request timeout, a slow-loading notice after eight seconds and a retry action.
 
-## October 26 specification audit
+## Artwork and content
 
-See SPEC_COMPLIANCE.md for the complete phase-by-phase, model-field, endpoint, route, and submission matrix. Three reproduced client defects were fixed: comment drafts retained between article IDs, duplicate project-summary punctuation, and joined accessible words in the homepage title. Dynamic detail routes now remount per ID. The complete test/build command passed after these corrections.
+The six approved works consist of three Literature texts, two Media videos and one Art audio recording. They use `sample=false`. English literary editions and descriptions accompany the original-language recordings. Native playback controls do not autoplay.
 
-Current production reads returned six projects and zero blog posts; a health retry returned a connected production database, and administrator login/current-user verification succeeded. Invalid-input and unauthenticated probes check the live validation/guard contract without changing formal works. The first health call timed out at 30 seconds, so cold-start latency remains an observed limitation. Browser initialization failed again; no new live browser or visual acceptance is claimed.
+`major dissemination_1` and `major dissemination_2` use the creator's supplied images. Four literary/audio covers and the About courtyard are generated interpretations. `CONTENT_SOURCES.md`, `MEDIA_PROVENANCE.json`, `COVER_ARTWORK.json`, `ABOUT_ARTWORK.json` and `ASSET_PROVENANCE.json` record the sources and preparation. The former extracted video posters have been superseded and removed from the delivered assets.
+
+## Remaining acceptance work
+
+The browser tool cannot initialize because of `helper_unknown_error: setup refresh had errors`. Current desktop/mobile layout, keyboard and gesture behavior, zoom/overflow, actual media playback and complete live interface workflows still need browser acceptance. Earlier screenshots do not establish acceptance of later layout changes. The previous independent visual review requested a new capture; no visual approval or clean Impeccable gate result is claimed.
+
+The journal needs at least one owner-approved English article before a visitor can follow its list into an article and comment demonstration. Automated tests and current HTTP responses do not certify a fault-free browser experience or continuous service availability.
+
+## Delivery checks
+
+The source package includes the workspace manifests and lockfile, client/server source, tests, deployment configuration, example environment files, current runtime artwork/media and the referenced documentation. Private configuration and administrator credentials, dependencies, databases, caches, build output, raw originals, design drafts and asset-generation tools are excluded.
+
+`DELIVERY_MANIFEST.json` inside `_Project.zip` lists every delivered file with its size and SHA-256 hash. Fresh extraction checks verify this inventory, required local imports, asset references and safe archive paths before installation/testing/build verification.

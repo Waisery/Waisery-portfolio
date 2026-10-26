@@ -1,14 +1,14 @@
-# Waisery — Portfolio & Journal
+# Waisery portfolio and journal
 
-A full-stack personal portfolio and blog built with React, React Router, CSS Modules, Node.js, Express, and MongoDB/Mongoose. The homepage uses a pure-white canvas with five presentation chapters, keyframed transitions, and Chinese celestial artwork. Inner pages retain the ivory, pale-gold, and ink design system.
+A personal portfolio and blog built with React, React Router, CSS Modules, Node.js, Express, and MongoDB/Mongoose. The white homepage has five chapters with keyframed transitions and Chinese celestial artwork. Other pages use ivory backgrounds, pale gold accents, and dark text.
 
-## Deployment targets
+## Live URLs
 
 - Frontend: https://waisery-portfolio.vercel.app/
 - API base: https://waisery-api.onrender.com/api
 - API health: https://waisery-api.onrender.com/api/health
 
-These are the owner's configured deployment targets. See `VERIFICATION.md` for the latest verified deployment status; a target URL alone does not confirm a successful release.
+The owner configured these deployment addresses. `VERIFICATION.md` records deployment checks and any acceptance work still to complete.
 
 ## Features
 
@@ -16,13 +16,15 @@ These are the owner's configured deployment targets. See `VERIFICATION.md` for t
 - Article detail pages with populated authors and authenticated comments.
 - Controlled contact form with validation and persistent message storage.
 - Registration and sign-in with bcrypt password hashing and expiring JWTs.
-- Authentication Context, session restoration, protected dashboard, and auth-aware navigation.
+- Authentication Context with session restoration, a protected dashboard, and navigation that changes when a user signs in.
 - Project CRUD for administrators; article CRUD restricted to the original author.
 - Administrator contact inbox with read/unread controls.
 - Consistent JSON errors, request validation, URL validation, Helmet, CORS, rate limits, and graceful shutdown.
-- Real MongoDB for both local demonstration and production; no browser-only mock data.
+- MongoDB storage in both the local demo and production, with data fetched through the API.
 
-The biography, learning focus, and contact information are adapted from the owner's reference frontend. Waisery is the public display name, and the owner explicitly approved publishing the contact email and six supplied works: three literary texts, two videos, and one audio recording. Literature is presented in English; videos and audio retain the supplied recording language with English presentation text. Generated covers are identified as illustrations. Local demonstration content stays labeled. The celestial figure is artwork, not a portrait of the portfolio owner. See `CONTENT_SOURCES.md` and `MEDIA_PROVENANCE.json` for source mapping.
+The biography, learning focus, and contact details come from the owner's reference frontend. The owner uses Waisery as the public name and approved publishing the contact email and six works: three literary texts, two videos, and one audio recording. The literary texts are in English. Videos and audio keep their original recording language, with English descriptions and controls.
+
+Generated covers are identified as illustrations, and local demo entries carry sample labels. The celestial figure does not depict the portfolio owner. Source details are in `CONTENT_SOURCES.md` and `MEDIA_PROVENANCE.json`.
 
 ## Requirements
 
@@ -41,7 +43,7 @@ npm run dev
 
 Open http://127.0.0.1:5173/. The API runs on port 4000, and Vite proxies `/api` to it.
 
-Without a MongoDB URI in development, the application starts an actual local MongoDB process and seeds example content. On the first run it downloads the platform-specific MongoDB distribution; this can take several minutes. Database files persist in `server/.data/mongodb`, and binaries are cached in `server/.data/binaries`.
+In development, leaving the MongoDB URI unset starts a local MongoDB process with example content. The first run downloads the MongoDB distribution for your platform, which can take several minutes. The application saves database files in `server/.data/mongodb` and caches the binaries in `server/.data/binaries`.
 
 Local demo administrator:
 
@@ -50,9 +52,9 @@ Email: admin@waisery.local
 Password: WaiseryDemo!2026
 ```
 
-This account exists only in the local demo database. Production refuses demo mode and never provisions these credentials automatically.
+These credentials belong to the local demo database. Production rejects demo mode and does not create this account automatically.
 
-For a database of your own, copy `server/.env.example` to `server/.env`, set `MONGODB_URI`, set a random `JWT_SECRET` of at least 32 characters, and set `DEMO_MODE=false`. Use `MONGODB_DB_NAME` to isolate this application's collections. `DNS_SERVERS` is an optional comma-separated resolver override for environments with restricted SRV resolution.
+To use your own database, copy `server/.env.example` to `server/.env`. Set `MONGODB_URI`, choose a random `JWT_SECRET` of at least 32 characters, and set `DEMO_MODE=false`. Set `MONGODB_DB_NAME` to keep this application's collections in their own database. If your network restricts SRV resolution, `DNS_SERVERS` accepts a comma-separated list of DNS resolvers.
 
 ## Commands
 
@@ -86,7 +88,7 @@ IMPLEMENTATION_PLAN.md Scope, acceptance criteria, and implementation decisions
 
 ## API endpoints
 
-Use `Authorization: Bearer <token>` for protected endpoints. JSON request and response bodies use `Content-Type: application/json`. Errors have the form `{ "error": { "message": "...", "fields": { "field": "..." } } }`; `fields` appears for input validation errors.
+Send `Authorization: Bearer <token>` with protected requests and use `Content-Type: application/json` for JSON bodies. Error responses use `{ "error": { "message": "...", "fields": { "field": "..." } } }`. Input validation errors include `fields`.
 
 | Method | Path | Access | Purpose |
 |---|---|---|---|
@@ -111,9 +113,9 @@ Use `Authorization: Bearer <token>` for protected endpoints. JSON request and re
 | GET | `/api/messages` | Administrator | Read the contact inbox |
 | PATCH | `/api/messages/:id` | Administrator | Change read/unread status |
 
-Registration accepts `username`, `email`, and `password`; it cannot grant an administrator role. Project payloads accept `title`, `description`, `imageUrl`, `repoUrl`, `liveUrl`, `category`, `tags`, `featured`, `sample`, `mediaType`, `mediaUrl`, `content`, and `contentNote`. Article payloads accept `title`, `content`, `excerpt`, `imageUrl`, `category`, and `sample`. The server assigns owner/author IDs from the verified session rather than trusting request fields.
+Registration accepts `username`, `email`, and `password` and creates an author account. It cannot grant administrator access. Project payloads accept `title`, `description`, `imageUrl`, `repoUrl`, `liveUrl`, `category`, `tags`, `featured`, `sample`, `mediaType`, `mediaUrl`, `content`, and `contentNote`. Article payloads accept `title`, `content`, `excerpt`, `imageUrl`, `category`, and `sample`. The server takes owner and author IDs from the verified session and ignores IDs submitted in those request fields.
 
-Passwords use bcrypt through the pure-JavaScript `bcryptjs` implementation, with 12 salt rounds and a validated 72-byte maximum. Tokens expire after eight hours and are verified for signature algorithm, issuer, and audience. Browser sessions are stored in sessionStorage and cleared on sign-out or an authentication rejection.
+The server hashes passwords with the pure-JavaScript `bcryptjs` implementation of bcrypt, using 12 salt rounds and a 72-byte input limit. JWTs expire after eight hours; verification checks the signature algorithm, issuer, and audience. Browser sessions use sessionStorage and are cleared on sign-out or authentication rejection.
 
 ## Render backend
 
@@ -137,9 +139,9 @@ JWT_SECRET=<a unique random secret of at least 32 characters>
 CLIENT_ORIGIN=https://waisery-portfolio.vercel.app
 ```
 
-Render supplies `PORT`. No persistent disk is required because production data lives in Atlas. The Blueprint declares the URI and origin as user-supplied values and can generate the JWT secret. It does not contain credentials.
+Render supplies `PORT`. Production data lives in Atlas, so the service does not need a persistent disk. The Blueprint asks for the URI and origin and can generate a JWT secret. Credentials are configured outside the Blueprint.
 
-If the frontend does not exist yet, temporarily set `CLIENT_ORIGIN=http://127.0.0.1:5173`, deploy the API, deploy Vercel using the resulting API URL, and then update `CLIENT_ORIGIN` to the final frontend origin. Multiple explicit origins can be comma-separated; add an exact preview origin if testing a Vercel preview deployment.
+For a first deployment, temporarily set `CLIENT_ORIGIN=http://127.0.0.1:5173` and deploy the API. Use its URL when deploying Vercel, then update `CLIENT_ORIGIN` to the final frontend origin. Separate multiple allowed origins with commas. To test a Vercel preview, add that preview's exact origin.
 
 ## Vercel frontend
 
@@ -151,38 +153,38 @@ Output Directory: client/dist
 Install Command: npm ci --include=dev --ignore-scripts
 ```
 
-Set `VITE_API_URL=https://waisery-api.onrender.com/api` as a Config variable for the intended environments. It is a public API address and is compiled into the browser bundle. Redeploy after changing it. Do not add database credentials or the JWT signing secret to the frontend.
+Set `VITE_API_URL=https://waisery-api.onrender.com/api` as a Config variable for the environments you want to deploy. Vite includes this public address in the browser bundle, so changing it requires a redeploy. Keep database credentials and the JWT signing secret on the backend.
 
 ## Provision a production administrator
 
-Public registration creates authors. To provision the owner, temporarily set `ADMIN_USERNAME`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` in the backend environment, then run `npm run seed` using that environment. The password must be at least 12 characters and no more than 72 UTF-8 bytes. Remove `ADMIN_PASSWORD` from the hosting environment afterward. An existing author is not silently promoted by the seed command.
+Public registration creates authors. To create the owner's administrator account, temporarily set `ADMIN_USERNAME`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` in the backend environment, then run `npm run seed` with those settings. The password must be at least 12 characters and no more than 72 UTF-8 bytes. Remove `ADMIN_PASSWORD` from the hosting environment afterward. The seed command refuses to promote an existing author account.
 
-Set `SEED_SAMPLE_CONTENT=true` only if you explicitly want the example projects and articles. Seeding inserts examples only when the corresponding collection is empty; it does not replace existing content. Production startup itself never seeds.
+Set `SEED_SAMPLE_CONTENT=true` to include example projects and articles. Seeding adds examples only to empty collections and leaves existing content in place. Production startup does not run the seed command.
 
 ## Personalization and artwork
 
-Edit `server/src/profile.js` for the biography and focus areas. Use the dashboard to replace sample projects and posts, and clear their sample-content label when publishing your own content. Hosted image URLs must use http/https; bundled images use `/images/...` paths.
+Edit `server/src/profile.js` to change the biography and focus areas. Manage projects and posts in the dashboard, and remove the sample label when publishing your own content. Use http/https URLs for hosted images and `/images/...` paths for bundled images.
 
-Generated illustration prompts and source-reference descriptions are recorded in `ASSET_PROVENANCE.json`; WebP assets contain embedded generation descriptions. UI text and controls remain semantic HTML rather than being baked into the artwork.
+`ASSET_PROVENANCE.json` contains the illustration prompts and reference descriptions. The WebP files also include generation descriptions. Interface text and controls use semantic HTML and remain separate from the artwork.
 
-The six current work covers are documented in `COVER_ARTWORK.json`. The two `major dissemination` films use the creator's supplied images; four literary/audio covers use natural photographic interpretations generated with built-in ImageGen. Full prompts, export paths and asset hashes are included. `TYPOGRAPHY_REVIEW.md` records the site-wide text sizing refinement and the outstanding browser verification scope.
+`COVER_ARTWORK.json` records the six work covers, including prompts, export paths, and file hashes. The two `major dissemination` films use images supplied by the creator. The four literary and audio covers are photographic interpretations made with built-in ImageGen. `TYPOGRAPHY_REVIEW.md` documents text sizes and the browser checks still needed.
 
-The About page groups the biography and contact links beside a courtyard study, followed by a separate exploration list. It stacks in reading order on small screens. `ABOUT_ARTWORK.json` records the built-in ImageGen prompt and exported asset hash; the image is conceptual artwork, not the owner's actual workspace.
+The About page places the biography and contact links beside a courtyard image, with the exploration list below. On small screens, these sections form one column. The courtyard is a conceptual image, not a photograph of the owner's workspace. Its ImageGen prompt and file hash are in `ABOUT_ARTWORK.json`.
 
 ## Submission
 
-The submission archive is named `_Project.zip`. It contains application source, artwork, lockfile, environment examples, deployment configuration, and documentation. Secret environment files, dependencies, local database files, caches, and generated build output are excluded. Production URLs must be checked after deployment before marking the hosted submission complete.
+`_Project.zip` contains the application source, artwork, lockfile, example environment files, deployment configuration, and documentation. It excludes secret environment files, installed dependencies, local database files, caches, and build output. Check the production URLs after each deployment before treating the hosted submission as complete.
 
 ## Presentation and creative works
 
-The homepage has five manually controlled chapters: Opening, Work, About, Journal, and Contact. Use the chapter controls, arrow keys, Page Up/Down, or a deliberate wheel/swipe gesture. Trackpad momentum cannot skip multiple chapters. Long chapter content remains scrollable before an edge gesture changes chapters. Browser zoom and media controls are preserved. Reduced-motion preferences replace spatial movement with a short fade. Inner routes keep ordinary document scrolling.
+The homepage has five chapters: Opening, Work, About, Journal, and Contact. Move between them with the chapter controls, arrow keys, Page Up/Down, or a deliberate wheel or swipe gesture. Trackpad momentum cannot skip several chapters at once. Within a long chapter, scroll to its edge before a further gesture changes chapters. Browser zoom and media controls keep their normal behavior. Reduced-motion settings use a short fade, and inner pages use ordinary scrolling.
 
-Projects support `mediaType` values `image`, `text`, `video`, and `audio`, together with `mediaUrl`, `content`, and `contentNote`. Text works require content; audio and video require a safe URL. Local media belongs under `client/public/media`. The dashboard edits these fields and the public detail page provides native media controls or a readable full-text view. Video and audio do not autoplay.
+Projects accept `mediaType` values `image`, `text`, `video`, and `audio`, with `mediaUrl`, `content`, and `contentNote` for the work itself. Text works need content, while audio and video need a safe URL. Put local media in `client/public/media`. These fields are editable in the dashboard. Public detail pages show the full text or native playback controls, with autoplay disabled.
 
-Stop the local development server before a local command-line import, because both use the same persistent demo database directory. An import requires explicitly configured administrator credentials. `npm run import:works -- --production` reads the ignored `server/.env.production.local` file and targets its Atlas database. It provisions that configured administrator if absent and upserts only the six stable source keys. It preserves unrelated records and never runs automatically at server start. Re-running the import replaces imported fields for these six works, so preserve later dashboard edits before choosing to import again. Production imports do not add sample content.
+Stop the development server before importing from the command line: both processes use the same local demo database directory. Configure administrator credentials before running an import. `npm run import:works -- --production` reads the ignored `server/.env.production.local` file and connects to the Atlas database specified there. It creates the configured administrator if needed and upserts the six works by their stable source keys. Other records stay in place. Imports never run at server startup, and production imports do not add sample content. Re-importing replaces the imported fields of those six works, so save any later dashboard edits before running it again.
 
-The generated production administrator credentials are stored only in the ignored local file `server/.admin-credentials.local.txt`. They are excluded from Git and `_Project.zip`.
+The production administrator credentials are kept in the ignored local file `server/.admin-credentials.local.txt`, which is excluded from Git and `_Project.zip`.
 
 ## Specification audit
 
-SPEC_COMPLIANCE.md maps every specification phase, required model field, mandatory endpoint, route, and submission item to source and verification evidence. The complete suite contains 25 real-MongoDB backend integration tests, 12 frontend API/gesture tests, and 11 React component workflow tests using an isolated test API. It distinguishes this automated evidence from outstanding live browser acceptance and the currently empty production journal.
+SPEC_COMPLIANCE.md lists the evidence for each specification phase, model field, endpoint, route, and submission requirement. The test suite has 25 backend integration tests using real MongoDB, 12 frontend API/gesture tests, and 11 React workflow tests using an isolated test API. Live browser acceptance is still pending, and the production journal currently has no articles.

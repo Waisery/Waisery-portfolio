@@ -28,21 +28,21 @@
       "aiGenerated": false
     },
     {
-      "source": "fe8_1080p.mp4",
-      "sourceSha256": "75515bfb69e686d0ad8bdfc8f2cf0f0872f53c7d92237dfd6eacc096263ae8b9",
-      "output": "client/public/images/fe8-cover.webp",
-      "outputSha256": "912e0d40321e1914b85aaeb440bf3322b22081997c2abd704bdb1a47bb73046d",
-      "preparation": "Poster frame at 00:55",
-      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "source": "codex-clipboard-d032efa3-fcb2-46ca-b13f-2ea520ba4b73.png",
+      "sourceSha256": "993085128af5cebe33e0c80ba224343ea8703a8f1aeae82293090c281d9ff493",
+      "output": "client/public/images/covers/major-dissemination-2-v1.webp",
+      "outputSha256": "9aab208d5fea82d50240d0bc9de016be7605c0e38e05adbd424be196f7f5b2e1",
+      "preparation": "Creator-supplied cover image, WebP encoding only; original composition preserved.",
+      "origin": "User-supplied image approved for this cover on October 26, 2026.",
       "aiGenerated": false
     },
     {
-      "source": "jike.mp4",
-      "sourceSha256": "9e95665ce6ceb8f50e135eb9a90cb841732319f0770f361cafcab5a8a1ef866a",
-      "output": "client/public/images/jike-cover.webp",
-      "outputSha256": "e24159b9f3a7e4f7f32f23341f49515af14a8fb913e57cb9c7666502d3579d5b",
-      "preparation": "Poster frame at 00:40",
-      "origin": "User-supplied work, approved for public portfolio display on October 25, 2026.",
+      "source": "codex-clipboard-abc306ba-2646-4607-8a3f-bd15086d592f.png",
+      "sourceSha256": "08510ce031cf02e7b8c7172eb0424d9d60b0a1f861e75d89b0396e835ba6126a",
+      "output": "client/public/images/covers/major-dissemination-1-v1.webp",
+      "outputSha256": "1ba3139e2bc9698d0b7f00361453607f905fe747ffd4180087a430c7994ce072",
+      "preparation": "Creator-supplied cover image, WebP encoding only; original composition preserved.",
+      "origin": "User-supplied image approved for this cover on October 26, 2026.",
       "aiGenerated": false
     },
     {

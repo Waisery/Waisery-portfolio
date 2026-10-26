@@ -22,7 +22,6 @@ export function About() {
         </div>
         <figure className={about.artwork}>
           <Artwork src="/images/about-courtyard-v1.webp" alt="A quiet wooden writing desk beside a lattice window overlooking a bamboo courtyard" eager />
-          <figcaption>AI-generated study of a quiet courtyard.</figcaption>
         </figure>
       </div>
       <section className={about.exploration} aria-labelledby="exploration-title">
